@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.1.6" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="description" content="Provides popup anchor links to headings in a web page.
+     This makes it easier for others to link to specific sections
+     in a large web manual or book." />
+  <title>Redis CheatSheet</title>
+  <style type="text/css"  class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote { 
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013"; 
+      position: absolute;
+      margin-left: -1em; 
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    text-align: left;
+    white-space: pre;
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {  
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;  
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
+    margin-top: 1.22em; 
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
+    margin-top: 1ex;    
+  }
+  .madoko h5, .madoko h6 { 
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 { 
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 { 
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;    
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  
+  <style>
+    /* ---------------------------------------------
+          Center document in the viewport
+        ----------------------------------------------*/
+        body.madoko {
+          margin: 0pt;
+          padding: 0pt;
+          max-width: 100%;
+        }
+        .body {
+          width: 70em;
+          max-width: 90%;
+          margin: 1em auto;
+        }
+        .preview .body {
+          width: 98%;
+          max-width: 100%;
+          margin: 0.25em auto;
+        }
+        
+        /* -----------------------------------------
+           Settings for a wide viewport:
+           The contents are shown in the side panel
+           on the left side.
+        -------------------------------------------- */
+        @media (min-width: 1024px) {
+          body.madoko {
+            padding-right: 8%; /* looks more balanced with sidepanel */
+          }       
+          .sidepanel {
+            width   : 14rem ; 
+            position: fixed;
+            top     : 3rem ;
+            max-height: 90%;
+            overflow-y: auto;
+          }
+          .mainpanel, .footnotes, .titleblock {
+            margin-left: calc(14rem + 4rem + 2px + 1rem);
+          }
+          .tocblock2, .tocblock3 {
+            display:none;
+          }
+          .tocblock.auto-expands, .tocblock.click-expands {
+            display:block;
+          }     
+          /*
+          .tocitem.current::after {
+            content: "\00A0\25CF";
+          }
+          */
+          .tocitem.current .heading-label {
+            font-weight: bold;
+          }      
+          span.unexpanded, span.expanded {
+            display: inline-block;
+            width: 1.25em;
+            margin-left: -1.25em;
+            font-family: "Segoe UI Symbol", Symbola, serif;
+            font-size: 70%;
+            cursor: pointer;
+            vertical-align: 0.1em;
+          }
+          span.unexpanded::before {
+            content: "\25B6";
+          }
+          span.expanded::before {
+            content: "\25BC";
+          }
+        }
+        
+        /* ---------------------------------------------------
+           Set margins and padding for side panel and sections
+        ------------------------------------------------------ */
+        .sidepanel, .mainpanel section, .footnotes {
+          padding: 0pt 1rem 0.25rem 1rem;
+        }
+        .sidepanel .tocblock {
+          font-size  : small;
+          white-space: nowrap;
+        }
+        .sidepanel .toc, .sidepanel h2, .sidepanel h1 {
+          margin-top: 0pt;
+        }
+        .footnotes {
+          padding-top: 0.5em; 
+        }
+        .footnotes>hr {
+          display:none;
+        }
+        section,.sidepanel {
+          margin-bottom: 1em;
+        }
+        
+        /* -----------------------------------
+           Nice scrollbar for toc
+        ----------------------------------- */
+        .sidepanel::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }     
+        /* Track */
+        .sidepanel::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+        }    
+        /* Handle */
+        .sidepanel::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            background: lightgray; 
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); 
+        }
+        .sidepanel::-webkit-scrollbar-thumb:window-inactive {
+          background: gainsboro; 
+        }
+        .madoko .toc > .tocblock .tocblock .tocblock {
+          margin-left: 1.5em;
+        }
+        .madoko .toc a {
+          color: #444; 
+        }
+    h0:hover .entity-anchor,
+        h1:hover .entity-anchor,
+        h2:hover .entity-anchor,
+        h3:hover .entity-anchor {
+          display: inline-block;
+        }
+        
+        a.entity-anchor {
+          color: black;
+        }
+        
+        a.localref.entity-anchor:hover {
+          text-decoration: none;
+        }
+        
+        .entity-anchor {
+          display: none;
+          width: 0.8em;
+          margin-left: -0.8em;
+          font-family: "Segoe UI Symbol", Symbola, serif;
+          font-size: 80%;
+        }
+  </style>
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0">
+
+<div class="titleblock align-center para-block" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" style="text-align:center;line-adjust:0">
+<div class="title para-block" style="font-size:xx-large;font-weight:bold;margin-bottom:0.5ex;line-adjust:0">Redis CheatSheet</div></div></div>
+<div class="sidepanel"><span data-line=""></span>
+<nav class="toc toc-contents">
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-basics" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;BASICS" style="toctarget:sec-basics"><a href="#sec-basics" class="localref"><span class="heading-label">1</span>.&#8194;BASICS</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-strings" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;STRINGS" style="toctarget:sec-strings"><a href="#sec-strings" class="localref"><span class="heading-label">2</span>.&#8194;STRINGS</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-lists" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;LISTS" style="toctarget:sec-lists"><a href="#sec-lists" class="localref"><span class="heading-label">3</span>.&#8194;LISTS</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-sets" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;SETS" style="toctarget:sec-sets"><a href="#sec-sets" class="localref"><span class="heading-label">4</span>.&#8194;SETS</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-sorted-sets" data-toc-depth="1" data-toc-line="[5]{.heading-label}.&#8194;SORTED SETS" style="toctarget:sec-sorted-sets"><a href="#sec-sorted-sets" class="localref"><span class="heading-label">5</span>.&#8194;SORTED SETS</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-hashes" data-toc-depth="1" data-toc-line="[6]{.heading-label}.&#8194;HASHES" style="toctarget:sec-hashes"><a href="#sec-hashes" class="localref"><span class="heading-label">6</span>.&#8194;HASHES</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-hyperloglog" data-toc-depth="1" data-toc-line="[7]{.heading-label}.&#8194;HYPERLOGLOG" style="toctarget:sec-hyperloglog"><a href="#sec-hyperloglog" class="localref"><span class="heading-label">7</span>.&#8194;HYPERLOGLOG</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-publication-subscription" data-toc-depth="1" data-toc-line="[8]{.heading-label}.&#8194;PUBLICATION &amp; SUBSCRIPTION" style="toctarget:sec-publication-subscription"><a href="#sec-publication-subscription" class="localref"><span class="heading-label">8</span>.&#8194;PUBLICATION &amp; SUBSCRIPTION</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-other-commands" data-toc-depth="1" data-toc-line="[9]{.heading-label}.&#8194;OTHER COMMANDS" style="toctarget:sec-other-commands"><a href="#sec-other-commands" class="localref"><span class="heading-label">9</span>.&#8194;OTHER COMMANDS</a></div></div></nav></div>
+<div class="mainpanel">
+<h2 id="sec-basics" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-basics" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span>BASICS</h2><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> <code class="code code1">redis-server /path/redis.conf</code> </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> start redid with the related configuration file </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> <code class="code code1">redis-cli</code>                     </td><td class="tbody tr-even tr-last col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> opens a redis prompt                            </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"></td></tr></tbody></table><h2 id="sec-strings" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-strings" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span>STRINGS</h2><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> APPEND key value                 </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> append a value to a key                                                  </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> BITCOUNT key [start end]         </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> count set bits in a string                                               </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SET key value                    </td><td class="tbody tr-odd col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> set value in key                                                         </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="4" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> SETNX key value                  </td><td class="tbody tr-even col col-even col-last" data-row="4" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> set if not exist value in key                                            </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="5" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SETRANGE key offset value        </td><td class="tbody tr-odd col col-even col-last" data-row="5" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> overwrite part of a string at key starting at the specified offset       </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> STRLEN key                       </td><td class="tbody tr-even col col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get the length of the value stored in a key                              </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="7" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> MSET key value [key value &#8230;]   </td><td class="tbody tr-odd col col-even col-last" data-row="7" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> set multiple keys to multiple values                                     </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="8" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> MSETNX key value [key value &#8230;] </td><td class="tbody tr-even col col-even col-last" data-row="8" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> set multiple keys to multiple values, only if none of the keys exist     </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="9" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> GET key                          </td><td class="tbody tr-odd col col-even col-last" data-row="9" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> get value in key                                                         </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="10" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> GETRANGE key start end           </td><td class="tbody tr-even col col-even col-last" data-row="10" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get substring of stored value from start to end offsets (both inclusive) </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="11" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> MGET key [key &#8230;]               </td><td class="tbody tr-odd col col-even col-last" data-row="11" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> get the values of all the given keys                                     </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="12" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> INCR key                         </td><td class="tbody tr-even col col-even col-last" data-row="12" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> increment value in key                                                   </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="13" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> INCRBY key increment             </td><td class="tbody tr-odd col col-even col-last" data-row="13" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> increment the integer value of a key by the given amount                 </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="14" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> INCRBYFLOAT key increment        </td><td class="tbody tr-even col col-even col-last" data-row="14" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> increment the float value of a key by the given amount                   </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="15" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> DECR key                         </td><td class="tbody tr-odd col col-even col-last" data-row="15" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> decrement the integer value of key by one                                </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="16" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> DECRBY key decrement             </td><td class="tbody tr-even col col-even col-last" data-row="16" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> decrement the integer value of a key by the given number                 </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="17" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> DEL key                          </td><td class="tbody tr-odd col col-even col-last" data-row="17" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> delete key                                                               </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="18" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> EXPIRE key 120                   </td><td class="tbody tr-even col col-even col-last" data-row="18" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> key will be deleted in 120 seconds                                       </td></tr>
+<tr><td class="tbody tr-odd tr-last col col-odd col-first" data-row="19" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> TTL key                          </td><td class="tbody tr-odd tr-last col col-even col-last" data-row="19" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> returns the number of seconds until a key is deleted                     </td></tr>
+<tr><td class="tbody tr-odd col cell-line col-odd col-first" data-row="19" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-odd col cell-line col-even col-last" data-row="19" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr></tbody></table><h2 id="sec-lists" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-lists" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span>LISTS</h2>
+<p class="p noindent">A list is a series of ordered values
+</p><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> RPUSH key value [value &#8230;]           </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> put the new value at the end of the list                                    </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> RPUSHX key value                      </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> append a value to a list, only if the exists                                </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> LPUSH key value [value &#8230;]           </td><td class="tbody tr-odd col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> put the new value at the start of the list                                  </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="4" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> LRANGE key start stop                 </td><td class="tbody tr-even col col-even col-last" data-row="4" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> give a subset of the list                                                   </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="5" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> LINDEX key index                      </td><td class="tbody tr-odd col col-even col-last" data-row="5" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> get an element from a list by its index                                     </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> LINSERT key BEFORE|AFTER pivot value </td><td class="tbody tr-even col col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> insert an element before or after another element in a list                 </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="7" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> LLEN key                              </td><td class="tbody tr-odd col col-even col-last" data-row="7" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> return the current length of the list                                       </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="8" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> LPOP key                              </td><td class="tbody tr-even col col-even col-last" data-row="8" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> remove the first element from the list and returns it                       </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="9" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> LSET key index value                  </td><td class="tbody tr-odd col col-even col-last" data-row="9" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> set the value of an element in a list by its index                          </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="10" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> LTRIM key start stop                  </td><td class="tbody tr-even col col-even col-last" data-row="10" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> trim a list to the specified range                                          </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="11" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> RPOP key                              </td><td class="tbody tr-odd col col-even col-last" data-row="11" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> remove the last element from the list and returns it                        </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="12" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> RPOPLPUSH source destination          </td><td class="tbody tr-even col col-even col-last" data-row="12" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> remove the last element in a list, prepend it to another list and return it </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="13" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> BLPOP key [key &#8230;] timeout           </td><td class="tbody tr-odd col col-even col-last" data-row="13" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> remove and get the first element in a list, or block until one is available </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-row="14" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> BRPOP key [key &#8230;] timeout           </td><td class="tbody tr-even tr-last col col-even col-last" data-row="14" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> remove and get the last element in a list, or block until one is available  </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="14" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="14" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"></td></tr></tbody></table><h2 id="sec-sets" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-sets" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span>SETS</h2>
+<p class="p noindent">A set is similar to a list, except it does not have a specific order and each element may only appear once.
+</p><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SADD key member [member &#8230;]    </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> add the given value to the set                                </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> SCARD key                       </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get the number of members in a set                            </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SREM key member [member &#8230;]    </td><td class="tbody tr-odd col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> remove the given value from the set                           </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="4" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> SISMEMBER myset value           </td><td class="tbody tr-even col col-even col-last" data-row="4" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> test if the given value is in the set                         </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="5" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SMEMBERS myset                  </td><td class="tbody tr-odd col col-even col-last" data-row="5" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> return a list of all the members of this set                  </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> SUNION key [key &#8230;]            </td><td class="tbody tr-even col col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> combine two or more sets and returns the list of all elements </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="7" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SINTER key [key &#8230;]            </td><td class="tbody tr-odd col col-even col-last" data-row="7" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> intersect multiple sets                                       </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="8" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> SMOVE source destination member </td><td class="tbody tr-even col col-even col-last" data-row="8" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> move a member from one set to another                         </td></tr>
+<tr><td class="tbody tr-odd tr-last col col-odd col-first" data-row="9" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SPOP key [count]                </td><td class="tbody tr-odd tr-last col col-even col-last" data-row="9" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> remove and return one or multiple random members from a set   </td></tr>
+<tr><td class="tbody tr-odd col cell-line col-odd col-first" data-row="9" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-odd col cell-line col-even col-last" data-row="9" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr></tbody></table><h2 id="sec-sorted-sets" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-sorted-sets" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">5</span>.&#8194;</span>SORTED SETS</h2>
+<p class="p noindent">A sorted set is similar to a regular set, but now each value has an associated score. This score is used to sort the elements in the set.
+</p><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> ZADD key [NX|XX] [CH] [INCR] score member [score member &#8230;] </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> add one or more members to a sorted set, or update its score if it already exists  </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> ZCARD key                                                      </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get the number of members in a sorted set                                          </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> ZCOUNT key min max                                             </td><td class="tbody tr-odd col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> count the members in a sorted set with scores within the given values              </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="4" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> ZINCRBY key increment member                                   </td><td class="tbody tr-even col col-even col-last" data-row="4" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> increment the score of a member in a sorted set                                    </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="5" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> ZRANGE key start stop [WITHSCORES]                             </td><td class="tbody tr-odd col col-even col-last" data-row="5" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> returns a subset of the sorted set                                                 </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> ZRANK key member                                               </td><td class="tbody tr-even col col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> determine the index of a member in a sorted set                                    </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="7" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> ZREM key member [member &#8230;]                                   </td><td class="tbody tr-odd col col-even col-last" data-row="7" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> remove one or more members from a sorted set                                       </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="8" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> ZREMRANGEBYRANK key start stop                                 </td><td class="tbody tr-even col col-even col-last" data-row="8" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> remove all members in a sorted set within the given indexes                        </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="9" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> ZREMRANGEBYSCORE key min max                                   </td><td class="tbody tr-odd col col-even col-last" data-row="9" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> remove all members in a sorted set, by index, with scores ordered from high to low </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="10" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> ZSCORE key member                                              </td><td class="tbody tr-even col col-even col-last" data-row="10" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get the score associated with the given mmeber in a sorted set                     </td></tr>
+<tr><td class="tbody tr-odd tr-last col col-odd col-first" data-row="11" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]   </td><td class="tbody tr-odd tr-last col col-even col-last" data-row="11" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> return a range of members in a sorted set, by score                                </td></tr>
+<tr><td class="tbody tr-odd col cell-line col-odd col-first" data-row="11" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-odd col cell-line col-even col-last" data-row="11" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr></tbody></table><h2 id="sec-hashes" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-hashes" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">6</span>.&#8194;</span>HASHES</h2>
+<p class="p noindent">Hashes are maps between string fields and string values, so they are the perfect data type to represent objects.
+</p><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> HGET key field                          </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> get the value of a hash field                                           </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> HGETALL key                             </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get all the fields and values in a hash                                 </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> HSET key field value                    </td><td class="tbody tr-odd col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> set the string value of a hash field                                    </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="4" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> HSETNX key field value                  </td><td class="tbody tr-even col col-even col-last" data-row="4" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> set the string value of a hash field, only if the field does not exists </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="5" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> HMSET key field value [field value &#8230;] </td><td class="tbody tr-odd col col-even col-last" data-row="5" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> set multiple fields at once                                             </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> HINCRBY key field increment             </td><td class="tbody tr-even col col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> increment value in hash by X                                            </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="7" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> HDEL key field [field &#8230;]              </td><td class="tbody tr-odd col col-even col-last" data-row="7" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> delete one or more hash fields                                          </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="8" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> HEXISTS key field                       </td><td class="tbody tr-even col col-even col-last" data-row="8" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> determine if a hash field exists                                        </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="9" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> HKEYS key                               </td><td class="tbody tr-odd col col-even col-last" data-row="9" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> get all the fields in a hash                                            </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="10" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> HLEN key                                </td><td class="tbody tr-even col col-even col-last" data-row="10" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get all the fields in a hash                                            </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="11" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> HSTRLEN key field                       </td><td class="tbody tr-odd col col-even col-last" data-row="11" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> get the length of the value of a hash field                             </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-row="12" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> HVALS key                               </td><td class="tbody tr-even tr-last col col-even col-last" data-row="12" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> get all the values in a hash                                            </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="12" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="12" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"></td></tr></tbody></table><h2 id="sec-hyperloglog" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-hyperloglog" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">7</span>.&#8194;</span>HYPERLOGLOG</h2>
+<p class="p noindent">HyperLogLog uses randomization in order to provide an approximation of the number of unique elements in a set using just a constant, and small amount of memory
+</p><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> PFADD key element [element &#8230;]           </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> add the specified elements to the specified HyperLogLog                                 </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> PFCOUNT key [key &#8230;]                     </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> return the approximated cardinality of the set(s) observed by the HyperLogLog at key&#39;s) </td></tr>
+<tr><td class="tbody tr-odd tr-last col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> PFMERGE destkey sourcekey [sourcekey &#8230;] </td><td class="tbody tr-odd tr-last col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> merge N HyperLogLogs into a single one                                                  </td></tr>
+<tr><td class="tbody tr-odd col cell-line col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-odd col cell-line col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr></tbody></table><h2 id="sec-publication-subscription" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-publication-subscription" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">8</span>.&#8194;</span>PUBLICATION &amp; SUBSCRIPTION</h2><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> PSUBSCRIBE pattern [pattern &#8230;]            </td><td class="tbody tr-odd tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> listen for messages published to channels matching the given patterns      </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="2" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> PUBSUB subcommand [argument [argument &#8230;]] </td><td class="tbody tr-even col col-even col-last" data-row="2" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> inspect the state of the Pub/Sub subsystem                                 </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="3" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> PUBLISH channel message                     </td><td class="tbody tr-odd col col-even col-last" data-row="3" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> post a message to a channel                                                </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-row="4" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> PUNSUBSCRIBE [pattern [pattern &#8230;]]        </td><td class="tbody tr-even col col-even col-last" data-row="4" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> stop listening for messages posted to channels matching the given patterns </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-row="5" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> SUBSCRIBE channel [channel &#8230;]             </td><td class="tbody tr-odd col col-even col-last" data-row="5" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> listen for messages published to the given channels                        </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"> UNSUBSCRIBE [channel [channel &#8230;]]         </td><td class="tbody tr-even tr-last col col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"> stop listening for messages posted to the given channels                   </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="6" data-col="1" style="width:10cm;text-align:left;background-color:Floralwhite"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="6" data-col="2" style="width:60%;text-align:left;background-color:Floralwhite"></td></tr></tbody></table><h2 id="sec-other-commands" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-other-commands" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">9</span>.&#8194;</span>OTHER COMMANDS</h2><table class="madoko block" style="tbody-tr-odd-background-color:Gainsboro;tr-even-background-color:Floralwhite;line-height:2em">
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr>
+<tr><td class="tbody tr-odd tr-last tr-first col col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"> KEYS pattern     </td><td class="tbody tr-odd tr-last tr-first col col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"> find all keys matching the given pattern </td></tr>
+<tr><td class="tbody tr-odd tr-first col cell-line col-odd col-first" data-row="1" data-col="1" style="width:10cm;text-align:left;background-color:Gainsboro"></td><td class="tbody tr-odd tr-first col cell-line col-even col-last" data-row="1" data-col="2" style="width:60%;text-align:left;background-color:Gainsboro"></td></tr></tbody></table></div><span data-line=""></span></div>
+</body>
+<script type="text/javascript">
+  // ---------------------------------------------
+      // Classname helpers
+      // ---------------------------------------------
+      function hasClassName(elem,cname) {
+        if (elem==null) return false;
+        var regex = new RegExp("\\s*\\b" + cname + "\\b","g");
+        return regex.test(elem.className);
+      }
+      
+      function removeClassName(elem,cname) {
+        var regex = new RegExp("\\s*\\b" + cname + "\\b","g");
+        elem.className = elem.className.replace( regex, "" );
+      }
+      
+      function addClassName(elem,cname) {
+        if (!hasClassName(elem,cname)) elem.className = elem.className + " " + cname;
+      }
+      
+      function toggleClassName(elem,cname) {
+        var regex = new RegExp("\\s*\\b" + cname + "\\b","g");
+        var classes = elem.className;
+        if (regex.test(classes)) {
+          elem.className = classes.replace( regex, "" );
+          return false;
+        }
+        else {
+          elem.className = classes + " " + cname;
+          return true;
+        }
+      }
+      
+      // ---------------------------------------------
+      // Reliable offset determination
+      // ---------------------------------------------
+      
+      function getWindowOffset(elem) {
+        var box;
+        if (elem.getBoundingClientRect) {
+          box = elem.getBoundingClientRect();
+        }
+        else if (elem.offsetParent && elem.offsetParent.getBoundingClientRect) {
+          // text node
+          box = elem.offsetParent.getBoundingClientRect();
+          box.top = box.top + elem.offsetTop;
+          box.left = box.left + elem.offsetLeft;
+        }
+        else {
+          box = { top: 0, left : 0 };
+        }
+        return box;
+      }
+      
+      // Return the viewport position: -1 (before), 0 (visible), 1 (after)
+      function viewportPosition(elem) {
+        var pos = getWindowOffset(elem)
+        if (pos.top < 0 || pos.left < 0) 
+          return -1;
+        else if (pos.top > (window.innerHeight || document.documentElement.clientHeight) ||
+                 pos.left > (window.innerWidth || document.documentElement.clientWidth)) 
+          return 1;
+        else 
+          return 0;
+      }
+      
+      // ---------------------------------------------
+      // Expand the toc sections and align headers with the toc.
+      // ---------------------------------------------
+      
+      var side = document.getElementsByClassName("sidepanel")[0];
+      var afterScroll = null;
+      
+      // Align a heading at the top of the page with the toc
+      function alignHeading( elem ) {
+        var ofs     = getWindowOffset(elem).top;
+        var sideofs = getWindowOffset(side).top;
+        if (ofs >= 0 && ofs < sideofs) {
+          window.scrollBy(0, ofs - sideofs);
+        } 
+      }
+      
+      // Expand, or unexpand, one toc item
+      // The class is 'auto-expands' or 'click-expands'; the latter is sticky
+      // as it is user induced and will not be automatically unexpanded.
+      function itemExpand(item,cls,expand) {
+        // get possible toc block (that follows the item)
+        var tocblock = item.nextElementSibling;
+        if (tocblock==null || !hasClassName(tocblock,"tocblock")) return;
+       
+        // set expand class
+        if (expand===undefined) expand = !hasClassName(tocblock,"expands");
+        if (cls===undefined) cls = "auto-expands" 
+        if (cls==="click-expands") removeClassName(tocblock,"auto-expands");
+        if (expand && !hasClassName(tocblock,cls)) {
+          toggleClassName(tocblock,cls); 
+        }
+        else if (!expand && hasClassName(tocblock,cls)) {
+          toggleClassName(tocblock,cls);
+          item.firstElementChild.className = "unexpanded";
+        }
+        
+        // set expansion icon
+        if (hasClassName(tocblock,"auto-expands") || hasClassName(tocblock,"click-expands")) {
+          item.firstElementChild.className = "expanded";   
+        }
+        else {
+          item.firstElementChild.className = "unexpanded";
+        }
+      }
+      
+      // Expand a single item in the toc (and unexpand others).
+      function itemExpandOne(item) {
+        // unexpand anything that was expanded
+        [].forEach.call( document.querySelectorAll(".tocitem"), function(item) {
+          removeClassName(item,"current");
+          itemExpand(item,"auto-expands",false);      
+        });
+        addClassName(item,"current");
+        // expand the chain of parent blocks
+        var tocblock = null;
+        var toc = item.nextElementSibling;
+        if (toc && hasClassName(toc,"tocblock")) { 
+          tocblock = toc;
+        }
+        else {
+          tocblock = item.parentElement;
+        }
+        while(tocblock != null && !hasClassName(tocblock,"toc")) {
+          if (hasClassName(tocblock,"tocblock")) {
+            item = tocblock.previousElementSibling;
+            if (item != null) itemExpand(item,"auto-expands",true);
+          }
+          tocblock = tocblock.parentElement;
+        }
+      }
+      
+      // Auto expand the toc at current  position in the document 
+      function expandToc() {
+        // find the first section heading that is visible in the viewport 
+        var current = null;
+        [].every.call( document.querySelectorAll(".tocitem"), function(item) {
+          var target = document.getElementById( item.getAttribute("data-toc-target") );
+          var pos = viewportPosition(target);
+          if (pos <= 0) current = item;
+          return (pos < 0);
+        });
+        // if found, expand the corresponding item
+        if (current != null) itemExpandOne(current);
+      }
+      
+      document.addEventListener("load", function(ev) { expandToc(); });
+      document.addEventListener("resize", function(ev) { expandToc(); });
+      
+      // fire at end of scrolling
+      var scrollHandler = null;
+      document.addEventListener("scroll", function(ev) {
+        if (scrollHandler) clearTimeout(scrollHandler);
+        scrollHandler = setTimeout( function() {
+          scrollHandler = null;
+          if (afterScroll) {
+            afterScroll();
+            afterScroll = null;
+          }
+          else {
+            expandToc();
+          }
+        }, 50 );
+      });
+      
+      // ---------------------------------------------
+      // Install event handlers for all items in the TOC
+      // ---------------------------------------------
+      [].forEach.call( document.querySelectorAll(".tocitem"), function(item) {
+        // only for toc items with a target
+        var target = document.getElementById( item.getAttribute("data-toc-target") );
+        if (!target) return;
+        
+        // ensure every tocblock has a expansion icon in front
+        // (the optional nested tocblock follows the item)
+        var tocblock = null;
+        var toc = item.nextElementSibling;  
+        if (toc && hasClassName(toc,"tocblock")) { 
+          tocblock = toc;
+          item.innerHTML = "<span class='unexpanded'></span>" + item.innerHTML;   
+        } 
+        
+        // on a click
+        item.addEventListener( "click", function() {
+          // expand this toc item and set expansion icon
+          itemExpand(item,"click-expands");
+          // after navigation, align the heading with the toc
+          afterScroll = (function() {
+            alignHeading(target);
+          });    
+        }); 
+      });
+</script>
+
+</html>
