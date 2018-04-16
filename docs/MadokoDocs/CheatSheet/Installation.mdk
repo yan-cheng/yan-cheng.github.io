@@ -1,0 +1,141 @@
+Title : BigData Install
+
+pre,code {
+  language: python;
+}
+
+equation {
+  toc: equations;
+  toc-line: "&label;&ensp;&caption;";
+}
+
+Doc class : [onecolumn, a4paper, 12pt]article
+
+Package: [curve]xypic
+Package: amscd
+Package: amsfonts
+Package: amsmath
+Package: fontspec
+Package: xeCJK
+Package: geometry
+Package: pgfplots
+Package: pgfplotstable
+Package: pst-plot
+Package: pstricks
+Package: tikz
+
+Tex Header:
+  \setmainfont{Times New Roman}
+  \setsansfont{Arial}
+  \setmonofont{Courier New}
+  \setCJKmainfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \setCJKsansfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \setCJKmonofont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \XeTeXlinebreaklocale "zh"
+  \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+  \geometry{top=1.2in,bottom=1.2in,left=1.2in,right=1in}
+  \usetikzlibrary{decorations.pathreplacing%
+  ,decorations.pathmorphing}
+
+[INCLUDE=book]
+[INCLUDE=webtoc]
+[INCLUDE=webanchors]
+
+[TITLE]
+
+
+~ Begin SidePanel
+[TOC]
+~ End SidePanel
+
+
+~ Begin MainPanel
+
+# 安装 JDK 1.8
+下载 Linux 版的JDK [jdk-8u161-linux-x64.tar.gz](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+```{ background-color=Gainsboro padding=2ex }
+# 使用源码安装
+cd /opt/java
+tar -zxvf jdk-8u121-linux-x64.tar.gz
+export JAVA_HOME=/opt/java/jdk1.8.0_121
+export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/
+export PATH=$PATH:$JAVA_HOME/bin
+source /etc/profile
+java -version
+
+# 使用 yum
+sudo yum install java-1.8.0-openjdk
+sudo yum install java-1.8.0-openjdk-devel
+```
+
+# 安装 ZooKeeper
+
+从 http://mirror.bit.edu.cn/apache/zookeeper/ 下载最新的稳定版本 Zookeeper
+
+```{ background-color=Gainsboro padding=2ex }
+# 安装 Zookeeper
+cd /opt
+tar -zxvf zookeeper-3.4.10.tar.gz
+cd zookeeper-3.4.10
+
+# 配置 Zookeeper
+mkdir ./log
+cp ./conf/zoo_sample.cfg ./conf/zoo.cfg
+vim ./conf/zoo.cfg
+
+~~~
+# 2888 是 zookeeper 服务之间通信的端口，3888 是 zookeeper 与其他应用程序通信的端口
+dataDir=/opt/zookeeper-3.4.10/data
+dataLogDir=/opt/zookeeper-3.4.10/log
+
+server.1=0.0.0.0:2888:3888  # 本机，myid为 1
+server.2=192.168.10.2:2888:3888  # 其他 Zookeeper 集群机器，myid为 2
+server.3=192.168.10.3:2888:3888  # 其他 Zookeeper 集群机器，myid为 3
+~~~
+
+vim ~/zookeeper/data/myid
+
+~~~
+# 其他机器分别写入 2,3...
+1
+~~~
+
+# 运行 Zookeeper
+cd /opt/zookeeper/zookeeper-3.4.10/bin
+./zkServer.sh start
+./zkServer.sh stop
+
+# 查看 Zookeeper
+./zkServer.sh status
+```
+# 安装 Kafka
+首先要安装 JDK 和 Zookeeper
+
+```{ background-color=Gainsboro padding=2ex }
+# 安装 kafka
+cd /opt
+tar -xzvf kafka_2.11-1.1.0.tgz
+cd kafka_2.11-1.1.0
+
+# 配置 kafka
+vim ./config/server.properties
+
+~~~
+broker.id=1  # 当前机器在集群中的唯一标识，和 zookeeper 的 myid 性质一样
+port=9092  # kafka 对外提供服务的端口默认是 9092
+host.name=10.8.5.101  # 服务器 IP 地址，修改为自己的服务器 IP
+log.dirs=/opt/kafka_2.11-1.1.0/kafkalogs/  # 消息存放的目录，注意不同于用于存放 kafka 日志的 ./logs 目录
+zookeeper.connect=192.168.10.1:2181,192.168.10.2:2181,192.168.10.3:2181 #设置zookeeper的连接端口
+advertised.listeners=PLAINTEXT://47.97.27.84:9092  # 外网访问配置
+~~~
+
+# 启动 kafka
+
+./bin/kafka-server-start.sh -daemon ./config/server.properties
+```
+
+
+~ End MainPanel
+
+
