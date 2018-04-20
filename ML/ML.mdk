@@ -152,13 +152,11 @@ f(x) = \frac {1}{1+e^{-x}}
 
 为什么要选用 logistic 函数，难道就是因为它连续可微和阶跃函数很像就足够了吗? 下面这些函数也有类似的性质：
 
-LDA vs PCA
-
-~ Figure {#阶跃函数的近似函数; caption: "与阶跃函数近似的函数"; page-align:top}
-![阶跃函数的近似函数]
+~ Figure {#阶跃函数的近似函数; caption: "阶跃函数近似的函数"; page-align:top}
+![functions_similar_to_step_function]
 ~
 
-[阶跃函数的近似函数]: images/-.png "阶跃函数的近似函数" { width:auto; max-width:90% }
+[functions_similar_to_step_function]: images/functions_similar_to_step_function.png { width:auto; max-width:90% }
 
 
 这个其实是考虑到 logistic 函数的导函数，我们看一下它的导函数形式：
@@ -236,19 +234,19 @@ E(y=1|\mathbf{x})=\frac {e^{\hat{\mathbf{\beta}} \cdot \mathbf{x}}}{1+ e^{\hat{\
 在学习**线性判别分析**（Linear Discriminant Analysis，LDA）之前，有必要将其自然语言处理领域的 LDA 区别开来。在自然语言处理领域， LDA 是**隐含狄利克雷分布**（Latent Dirichlet Allocation，LDA），它是一种处理文档的主题模型。我们本文只讨论线性判别分析，因此后面所有的 LDA 均指线性判别分析。
 
 LDA 是一种监督学习的降维技术，也就是说它的数据集的每个样本是有类别输出的。这点和PCA不同。PCA是不考虑样本类别输出的无监督降维技术。
-LDA 的思想可以用一句话概括，就是“投影后类内方差最小，类间方差最大”：
+LDA 的思想为：
 
-- 训练时:设法将训练样本投影到一条直线上，使得同类样本的投影点尽可能地接近、异类的样本投影点尽可能的远；
-- 预测时:将待预测样本投影到学到的直线上，根据它的投影点的位置判断类别；
+- 训练时：设法将训练样本投影到一条直线上，使得同类样本的投影点尽可能地接近而异类的样本投影点尽可能的远；
+- 预测时：将待预测样本投影到学到的直线上，根据它的投影点的位置判断类别；
 
 假设有两类数据分别为红色和蓝色，如下图所示，这些数据特征是二维的，我们希望将这些数据投影到一维的一条直线，让每一种类别数据的投影点尽可能的接近，而红色和蓝色数据中心之间的距离尽可能的大。
 
-~ Figure { #LDA 投影; caption:"LDA在不同方向的投影"; page-align:top}
-![LDA]
+~ Figure { #LDA 在不同方向的投影; caption:"LDA 在不同方向的投影"; page-align:top}
+![LDA_projection]
 ~
-[LDA]: images/LDA.png "LDA" { width:auto; max-width:80% }
+[LDA_projection]: images/LDA_projection.png { width:auto; max-width:80% }
 
-从直观上可以看出，右图要比左图的投影效果好，因为右图的黑色数据和蓝色数据各个较为集中，且类别之间的距离明显。左图则在边界处数据混杂。以上就是LDA的主要思想了，当然在实际应用中，我们的数据是多个类别的，我们的原始数据一般也是超过二维的，投影后的也一般不是直线，而是一个低维的超平面。
+从直观上可以看出，右图要比左图的投影效果好，因为右图的黑色数据和蓝色数据各个较为集中，且类别之间的距离明显。左图则在边界处数据混杂。以上就是LDA的主要思想了，当然在实际应用中，数据是多个类别的，数据一般也是超过二维的，投影后的也一般不是直线，而是一个低维的超平面。
 
 ### 瑞利商（Rayleigh quotient）与广义瑞利商（genralized Rayleigh quotient）
 
@@ -263,7 +261,7 @@ R(\mathbf{A},\mathbf{x}) = \frac{\mathbf{x}^H \mathbf{A} \mathbf{x}}{\mathbf{x}^
 瑞利商 $R(\mathbf{A},\mathbf{x})$ 有一个非常重要的性质，即它的最大值等于矩阵 $\mathbf{A}$ 最大的特征值，而最小值等于矩阵 $\mathbf{A}$ 的最小的特征值，也就是满足：
 
 ~ Equation
-\lambda_{min} ≤ \frac{\mathbf{x}^H \mathbf{A} \mathbf{x}}{\mathbf{x}^H \mathbf{x}} ≤ \lambda_{max}
+\lambda_{min} \le \frac{\mathbf{x}^H \mathbf{A} \mathbf{x}}{\mathbf{x}^H \mathbf{x}} \le \lambda_{max}
 ~
 
 当向量 $\mathbf{x}$ 是标准正交基时，即满足 $\mathbf{x}^H\mathbf{x} = 1$ 时，瑞利商退化为：$R(\mathbf{A},\mathbf{x}) = \mathbf{x}^H\mathbf{A}\mathbf{x}$，这个形式在谱聚类和 PCA 中都有出现。
@@ -274,7 +272,7 @@ R(\mathbf{A},\mathbf{x}) = \frac{\mathbf{x}^H \mathbf{A} \mathbf{x}}{\mathbf{x}^
 R(\mathbf{A},\mathbf{x})= \frac{\mathbf{x}^H\mathbf{A}\mathbf{x}}{\mathbf{x}^H\mathbf{B}\mathbf{x}}
 ~
 
-其中 $\mathbf{x}$ 为非零向量，而 $\mathbf{A}$，$\mathbf{B}$ 为 $n \times n$ 的 Hermitan 矩阵。$\mathbf{B}$ 为正定矩阵。现通过标准化将其转化为瑞利商的格式。令 $\mathbf{x}^\prime = \mathbf{B}^{-1/2}\mathbf{x}$，则分母转化为：
+其中 $\mathbf{x}$ 为非零向量，而 $\mathbf{A}$，$\mathbf{B}$ 为 $n \times n$ 的 Hermitan 矩阵。$\mathbf{B}$ 为正定矩阵。可以通过 Cholesky 分解（Cholesky decomposition）转化成标准瑞利商格式。令 $\mathbf{x}^\prime = \mathbf{B}^{-1/2}\mathbf{x}$，则分母转化为：
 
 ~ Equation
 \mathbf{x}^H \mathbf{B} \mathbf{x} = \mathbf{x}^{\prime H}(\mathbf{B}^{-\frac{1}{2}})^H \mathbf{B} \mathbf{B}^{-\frac{1}{2}} \mathbf{x}^\prime = \mathbf{x}^\prime \mathbf{H} \mathbf{B}^{-\frac{1}{2}} \mathbf{B} \mathbf{B}^{-\frac{1}{2}} \mathbf{x}^\prime = \mathbf{x}^{\prime H} \mathbf{x}^\prime
@@ -405,10 +403,10 @@ LDA 用于降维，和 PCA 有很多相同，也有很多不同的地方，这�
 
 下图是数据分别在 LDA（$d_2$） 与 PCA（$d_1$）下降维示意图：
 
-~ Figure { #LDA vs PCA; caption:"LDA 对比 PCA"; page-align:top}
-![LDA vs PCA]
+~ Figure { #LDA 对比 PCA; caption:"LDA 对比 PCA"; page-align:top}
+![LDA_vs_PCA]
 ~
-[LDA vs PCA]: images/LDA-vs-PCA.png "LDA vs PCA" { width:auto; max-width:70% }
+[LDA_vs_PCA]: images/LDA_vs_PCA.png { width:auto; max-width:70% }
 
 ## 多分类问题和不平衡问题
 
