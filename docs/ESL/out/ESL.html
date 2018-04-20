@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.1.6" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="description" content="Provides popup anchor links to headings in a web page.
+     This makes it easier for others to link to specific sections
+     in a large web manual or book." />
+  <title>Notes on The Elements of Statistical Learning</title>
+  <style type="text/css"  class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote { 
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013"; 
+      position: absolute;
+      margin-left: -1em; 
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    text-align: left;
+    white-space: pre;
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {  
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;  
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
+    margin-top: 1.22em; 
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
+    margin-top: 1ex;    
+  }
+  .madoko h5, .madoko h6 { 
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 { 
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 { 
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;    
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  
+  <style>
+    /* ---------------------------------------------
+          Center document in the viewport
+        ----------------------------------------------*/
+        body.madoko {
+          margin: 0pt;
+          padding: 0pt;
+          max-width: 100%;
+        }
+        .body {
+          width: 70em;
+          max-width: 90%;
+          margin: 1em auto;
+        }
+        .preview .body {
+          width: 98%;
+          max-width: 100%;
+          margin: 0.25em auto;
+        }
+        
+        /* -----------------------------------------
+           Settings for a wide viewport:
+           The contents are shown in the side panel
+           on the left side.
+        -------------------------------------------- */
+        @media (min-width: 1024px) {
+          body.madoko {
+            padding-right: 8%; /* looks more balanced with sidepanel */
+          }       
+          .sidepanel {
+            width   : 14rem ; 
+            position: fixed;
+            top     : 3rem ;
+            max-height: 90%;
+            overflow-y: auto;
+          }
+          .mainpanel, .footnotes, .titleblock {
+            margin-left: calc(14rem + 4rem + 2px + 1rem);
+          }
+          .tocblock2, .tocblock3 {
+            display:none;
+          }
+          .tocblock.auto-expands, .tocblock.click-expands {
+            display:block;
+          }     
+          /*
+          .tocitem.current::after {
+            content: "\00A0\25CF";
+          }
+          */
+          .tocitem.current .heading-label {
+            font-weight: bold;
+          }      
+          span.unexpanded, span.expanded {
+            display: inline-block;
+            width: 1.25em;
+            margin-left: -1.25em;
+            font-family: "Segoe UI Symbol", Symbola, serif;
+            font-size: 70%;
+            cursor: pointer;
+            vertical-align: 0.1em;
+          }
+          span.unexpanded::before {
+            content: "\25B6";
+          }
+          span.expanded::before {
+            content: "\25BC";
+          }
+        }
+        
+        /* ---------------------------------------------------
+           Set margins and padding for side panel and sections
+        ------------------------------------------------------ */
+        .sidepanel, .mainpanel section, .footnotes {
+          padding: 0pt 1rem 0.25rem 1rem;
+        }
+        .sidepanel .tocblock {
+          font-size  : small;
+          white-space: nowrap;
+        }
+        .sidepanel .toc, .sidepanel h2, .sidepanel h1 {
+          margin-top: 0pt;
+        }
+        .footnotes {
+          padding-top: 0.5em; 
+        }
+        .footnotes>hr {
+          display:none;
+        }
+        section,.sidepanel {
+          margin-bottom: 1em;
+        }
+        
+        /* -----------------------------------
+           Nice scrollbar for toc
+        ----------------------------------- */
+        .sidepanel::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }     
+        /* Track */
+        .sidepanel::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+        }    
+        /* Handle */
+        .sidepanel::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            background: lightgray; 
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); 
+        }
+        .sidepanel::-webkit-scrollbar-thumb:window-inactive {
+          background: gainsboro; 
+        }
+        .madoko .toc > .tocblock .tocblock .tocblock {
+          margin-left: 1.5em;
+        }
+        .madoko .toc a {
+          color: #444; 
+        }
+    h0:hover .entity-anchor,
+        h1:hover .entity-anchor,
+        h2:hover .entity-anchor,
+        h3:hover .entity-anchor {
+          display: inline-block;
+        }
+        
+        a.entity-anchor {
+          color: black;
+        }
+        
+        a.localref.entity-anchor:hover {
+          text-decoration: none;
+        }
+        
+        .entity-anchor {
+          display: none;
+          width: 0.8em;
+          margin-left: -0.8em;
+          font-family: "Segoe UI Symbol", Symbola, serif;
+          font-size: 80%;
+        }
+  </style>
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0">
+
+<div class="titleblock align-center para-block" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" style="text-align:center;line-adjust:0">
+<div class="title para-block" style="font-size:xx-large;font-weight:bold;margin-bottom:0.5ex;line-adjust:0">Notes on The Elements of Statistical Learning</div></div></div>
+<div class="sidepanel"><span data-line=""></span>
+<nav class="toc toc-contents">
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-chapter-2-overview-of-supervised-learning" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;Chapter 2 Overview of Supervised Learning" style="toctarget:sec-chapter-2-overview-of-supervised-learning"><a href="#sec-chapter-2-overview-of-supervised-learning" class="localref"><span class="heading-label">1</span>.&#8194;Chapter 2 Overview of Supervised Learning</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-linear-models" data-toc-depth="2" data-toc-line="[1.1]{.heading-label}.&#8194;Linear Models" style="toctarget:sec-linear-models"><a href="#sec-linear-models" class="localref"><span class="heading-label">1.1</span>.&#8194;Linear Models</a></div></div></div></nav></div>
+<div class="mainpanel">
+<h2 id="sec-chapter-2-overview-of-supervised-learning" class="h1" data-heading-depth="1" style="display:block"><a href="#sec-chapter-2-overview-of-supervised-learning" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span>Chapter 2 Overview of Supervised Learning</h2><h3 id="sec-linear-models" class="h2" data-heading-depth="2" style="display:block"><a href="#sec-linear-models" class="entity-anchor localref">#</a><span class="heading-before"><span class="heading-label">1.1</span>.&#8194;</span>Linear Models</h3>
+<p class="p noindent para-continue">Given a vector of inputs <svg  class="math-inline math-render-svg math" style="vertical-align:-0.3295em;height:1.2154em;width:10.1475em" viewBox='34.67 53.307 96.643 11.575' ><desc>$X^T = (X_1,X_2,... ,X_p)$</desc><g id='math-350246'><use x='34.869' xlink:href='#g2-88' y='61.836'/><use x='43.905' xlink:href='#g3-84' y='58.22'/><use x='52.948' xlink:href='#g4-61' y='61.836'/><use x='63.464' xlink:href='#g4-40' y='61.836'/><use x='67.339' xlink:href='#g2-88' y='61.836'/><use x='75.592' xlink:href='#g5-49' y='63.33'/><use x='80.062' xlink:href='#g2-59' y='61.836'/><use x='84.49' xlink:href='#g2-88' y='61.836'/><use x='92.743' xlink:href='#g5-50' y='63.33'/><use x='97.213' xlink:href='#g2-59' y='61.836'/><use x='101.641' xlink:href='#g2-58' y='61.836'/><use x='104.408' xlink:href='#g2-58' y='61.836'/><use x='107.175' xlink:href='#g2-58' y='61.836'/><use x='109.943' xlink:href='#g2-59' y='61.836'/><use x='114.371' xlink:href='#g2-88' y='61.836'/><use x='122.624' xlink:href='#g3-112' y='63.33'/><use x='127.23' xlink:href='#g4-41' y='61.836'/></g></svg>, we predict the output <svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7563em;width:0.8826em" viewBox='88.468 54.832 8.406 7.203' ><desc>$Y$</desc><g id='math-57cec4'><use x='88.667' xlink:href='#g2-89' y='61.836'/></g></svg> via the model 
+</p>
+<div class="equation para-block" style="line-adjust:0"><span class="equation-before"><span class="equation-label">(1)</span></span>
+
+<div class="mathdisplay para-block input-math" data-math-full="" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.1054em;width:8.5218em" viewBox='165.577 53.593 81.16 29.575' ><desc>\[\hat{Y} = \hat{\beta_0} + \sum_{j=1}^p X_j \hat{\beta_j}
+\]</desc><g id='math-410008'><use x='167.284' xlink:href='#g4-94' y='67.274'/><use x='165.776' xlink:href='#g2-89' y='69.792'/><use x='176.541' xlink:href='#g4-61' y='69.792'/><use x='189.619' xlink:href='#g4-94' y='67.163'/><use x='187.057' xlink:href='#g2-12' y='69.792'/><use x='192.692' xlink:href='#g5-48' y='71.286'/><use x='199.376' xlink:href='#g4-43' y='69.792'/><use x='214.48' xlink:href='#g3-112' y='56.868'/><use x='209.338' xlink:href='#g6-88' y='60.327'/><use x='209.64' xlink:href='#g3-106' y='81.546'/><use x='213.34' xlink:href='#g5-61' y='81.546'/><use x='219.456' xlink:href='#g5-49' y='81.546'/><use x='225.389' xlink:href='#g2-88' y='69.792'/><use x='233.643' xlink:href='#g3-106' y='71.286'/><use x='240.266' xlink:href='#g4-94' y='67.163'/><use x='237.841' xlink:href='#g2-12' y='69.792'/><use x='243.476' xlink:href='#g3-106' y='71.286'/></g></svg></div></div>
+<p class="p noindent para-continued">The term <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2313em;height:1.2468em;width:1.1039em" viewBox='34.67 52.093 10.513 11.874' ><desc>$\hat{\beta_0}$</desc><g id='math-9dabc3'><use x='37.431' xlink:href='#g4-94' y='59.207'/><use x='34.869' xlink:href='#g2-12' y='61.836'/><use x='40.504' xlink:href='#g5-48' y='63.33'/></g></svg> is the intercept(截距), also known as the bias(偏差) in machine learning. Often it is convenient to include the constant variable <svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7386em;width:0.5659em" viewBox='34.67 55.001 5.39 7.034' ><desc>$1$</desc><g id='math-c4ca42'><use x='34.869' xlink:href='#g4-49' y='61.836'/></g></svg> in <svg  class="math-inline math-render-svg math" style="vertical-align:-0.0210em;height:0.7563em;width:0.9916em" viewBox='88.468 54.832 9.444 7.203' ><desc>$X$</desc><g id='math-02129b'><use x='88.667' xlink:href='#g2-88' y='61.836'/></g></svg>, include <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2313em;height:1.2468em;width:1.1039em" viewBox='34.67 52.093 10.513 11.874' ><desc>$\hat{\beta_0}$</desc><g id='math-9dabc3'><use x='37.431' xlink:href='#g4-94' y='59.207'/><use x='34.869' xlink:href='#g2-12' y='61.836'/><use x='40.504' xlink:href='#g5-48' y='63.33'/></g></svg> in the vector of coefficients <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2313em;height:1.2468em;width:0.6897em" viewBox='88.468 52.093 6.569 11.874' ><desc>$\hat{\beta}$</desc><g id='math-a37c60'><use x='90.088' xlink:href='#g4-94' y='59.207'/><use x='88.667' xlink:href='#g2-12' y='61.836'/></g></svg>, and then write the linear model in vector form as an inner product  <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2313em;height:1.2468em;width:4.5320em" viewBox='34.67 52.093 43.162 11.874' ><desc>$\hat{Y} = X^T \hat{\beta}$</desc><g id='math-a72702'><use x='36.377' xlink:href='#g4-94' y='59.317'/><use x='34.869' xlink:href='#g2-89' y='61.836'/><use x='45.634' xlink:href='#g4-61' y='61.836'/><use x='56.15' xlink:href='#g2-88' y='61.836'/><use x='65.186' xlink:href='#g3-84' y='58.22'/><use x='72.882' xlink:href='#g4-94' y='59.207'/><use x='71.462' xlink:href='#g2-12' y='61.836'/></g></svg>.
+</p>
+<p class="p indent">Viewed as a function over the p-dimensional input space, <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2909em;height:1.1780em;width:6.0794em" viewBox='88.468 53.307 57.899 11.219' ><desc>$f(X) = X^T\beta$</desc><g id='math-3cea8c'><use x='88.667' xlink:href='#g2-102' y='61.836'/><use x='94.617' xlink:href='#g4-40' y='61.836'/><use x='98.492' xlink:href='#g2-88' y='61.836'/><use x='107.527' xlink:href='#g4-41' y='61.836'/><use x='114.169' xlink:href='#g4-61' y='61.836'/><use x='124.685' xlink:href='#g2-88' y='61.836'/><use x='133.721' xlink:href='#g3-84' y='58.22'/><use x='139.997' xlink:href='#g2-12' y='61.836'/></g></svg> is linear, and the gradient <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2930em;height:1.0879em;width:4.4716em" viewBox='34.67 54.164 42.587 10.361' ><desc>$f′(X) = \beta$</desc><g id='math-3be1c8'><use x='34.869' xlink:href='#g2-102' y='61.836'/><use x='40.819' xlink:href='#g4-40' y='61.836'/><use x='44.694' xlink:href='#g2-88' y='61.836'/><use x='53.729' xlink:href='#g4-41' y='61.836'/><use x='60.371' xlink:href='#g4-61' y='61.836'/><use x='70.887' xlink:href='#g2-12' y='61.836'/></g></svg> is a vector in input space that points in the steepest uphill direction.
+</p>
+<p class="p indent para-continue">The most popular is the method to fit the linear model to a set of training data is least squares. In this approach, we pick the coefficients <svg  class="math-inline math-render-svg math" style="vertical-align:-0.2361em;height:0.9833em;width:0.6897em" viewBox='88.468 54.603 6.569 9.365' ><desc>$\beta$</desc><g id='math-b06038'><use x='88.667' xlink:href='#g2-12' y='61.836'/></g></svg> to minimize the residual sum of squares
+</p>
+<div class="equation para-block" style="line-adjust:0"><span class="equation-before"><span class="equation-label">(2)</span></span>
+
+<div class="mathdisplay para-block input-math" data-math-full="" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:4.8007em;width:14.2577em" viewBox='138.333 53.669 135.788 45.721' ><desc>\[\begin{split}
+RSS(\beta) &amp;= \sum_{i=1}^N(y_i − x^T_i \beta)^2 \\
+           &amp;= (\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)
+\end{split}
+\]</desc><g id='math-b81da3'><use x='138.532' xlink:href='#g2-82' y='71.084'/><use x='146.174' xlink:href='#g2-83' y='71.084'/><use x='152.857' xlink:href='#g2-83' y='71.084'/><use x='159.54' xlink:href='#g4-40' y='71.084'/><use x='163.415' xlink:href='#g2-12' y='71.084'/><use x='169.576' xlink:href='#g4-41' y='71.084'/><use x='176.217' xlink:href='#g4-61' y='71.084'/><use x='190.399' xlink:href='#g3-78' y='58.631'/><use x='186.733' xlink:href='#g6-88' y='61.62'/><use x='187.476' xlink:href='#g3-105' y='82.839'/><use x='190.294' xlink:href='#g5-61' y='82.839'/><use x='196.41' xlink:href='#g5-49' y='82.839'/><use x='201.124' xlink:href='#g4-40' y='71.084'/><use x='204.998' xlink:href='#g2-121' y='71.084'/><use x='209.883' xlink:href='#g3-105' y='72.579'/><use x='213.2' xlink:href='#g2-120' y='71.084'/><use x='218.893' xlink:href='#g3-84' y='66.971'/><use x='218.893' xlink:href='#g3-105' y='73.547'/><use x='225.17' xlink:href='#g2-12' y='71.084'/><use x='231.331' xlink:href='#g4-41' y='71.084'/><use x='235.205' xlink:href='#g5-50' y='66.971'/><use x='176.217' xlink:href='#g4-61' y='96.699'/><use x='186.733' xlink:href='#g4-40' y='96.699'/><use x='190.608' xlink:href='#g0-121' y='96.699'/><use x='199.027' xlink:href='#g1-0' y='96.699'/><use x='208.99' xlink:href='#g0-88' y='96.699'/><use x='217.652' xlink:href='#g2-12' y='96.699'/><use x='223.813' xlink:href='#g4-41' y='96.699'/><use x='227.687' xlink:href='#g3-84' y='92.586'/><use x='233.963' xlink:href='#g4-40' y='96.699'/><use x='237.838' xlink:href='#g0-121' y='96.699'/><use x='246.258' xlink:href='#g1-0' y='96.699'/><use x='256.22' xlink:href='#g0-88' y='96.699'/><use x='264.882' xlink:href='#g2-12' y='96.699'/><use x='271.043' xlink:href='#g4-41' y='96.699'/></g></svg></div></div>
+<div class="note" style="display:block">
+<p class="p noindent"><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span>两个元素乘积的和常常转化成向量内积或矩阵相乘来处理，即：</p></div>
+<div class="equation para-block" style="line-adjust:0"><span class="equation-before"><span class="equation-label">(3)</span></span>
+
+<div class="mathdisplay para-block input-math" data-math-full="" style="line-adjust:0"><svg  class="mathdisplay math-display math-render-svg math" data-math-full="" style="vertical-align:-0.0210em;height:3.0911em;width:19.9874em" viewBox='164.848 53.669 190.356 29.439' ><desc>\[\sum_{i=1}^N \alpha_i\beta_i = (\alpha_1, \alpha_2, \cdots, \alpha_n)^T (\beta_1, \beta_2, \cdots, \beta_n)
+\]</desc><g id='math-0c2318'><use x='168.713' xlink:href='#g3-78' y='58.631'/><use x='165.047' xlink:href='#g6-88' y='61.62'/><use x='165.789' xlink:href='#g3-105' y='82.839'/><use x='168.608' xlink:href='#g5-61' y='82.839'/><use x='174.724' xlink:href='#g5-49' y='82.839'/><use x='181.098' xlink:href='#g2-11' y='71.084'/><use x='187.471' xlink:href='#g3-105' y='72.579'/><use x='190.788' xlink:href='#g2-12' y='71.084'/><use x='196.423' xlink:href='#g3-105' y='72.579'/><use x='202.507' xlink:href='#g4-61' y='71.084'/><use x='213.023' xlink:href='#g4-40' y='71.084'/><use x='216.897' xlink:href='#g2-11' y='71.084'/><use x='223.271' xlink:href='#g5-49' y='72.579'/><use x='227.74' xlink:href='#g2-59' y='71.084'/><use x='232.168' xlink:href='#g2-11' y='71.084'/><use x='238.541' xlink:href='#g5-50' y='72.579'/><use x='243.01' xlink:href='#g2-59' y='71.084'/><use x='247.438' xlink:href='#g1-1' y='71.084'/><use x='251.866' xlink:href='#g1-1' y='71.084'/><use x='256.294' xlink:href='#g1-1' y='71.084'/><use x='262.382' xlink:href='#g2-59' y='71.084'/><use x='266.81' xlink:href='#g2-11' y='71.084'/><use x='273.183' xlink:href='#g3-110' y='72.579'/><use x='278.606' xlink:href='#g4-41' y='71.084'/><use x='282.48' xlink:href='#g3-84' y='66.971'/><use x='288.756' xlink:href='#g4-40' y='71.084'/><use x='292.631' xlink:href='#g2-12' y='71.084'/><use x='298.266' xlink:href='#g5-49' y='72.579'/><use x='302.735' xlink:href='#g2-59' y='71.084'/><use x='307.163' xlink:href='#g2-12' y='71.084'/><use x='312.798' xlink:href='#g5-50' y='72.579'/><use x='317.267' xlink:href='#g2-59' y='71.084'/><use x='321.695' xlink:href='#g1-1' y='71.084'/><use x='326.123' xlink:href='#g1-1' y='71.084'/><use x='330.551' xlink:href='#g1-1' y='71.084'/><use x='336.639' xlink:href='#g2-59' y='71.084'/><use x='341.067' xlink:href='#g2-12' y='71.084'/><use x='346.702' xlink:href='#g3-110' y='72.579'/><use x='352.125' xlink:href='#g4-41' y='71.084'/></g></svg></div></div></div><span data-line=""></span></div>
+<svg id='math-svg-paths' style='display:none' version='1.1' viewBox='0 0 0 0' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+<defs>
+<path d='M1.913 -0.528C1.913 -0.817 1.674 -1.056 1.385 -1.056S0.857 -0.817 0.857 -0.528S1.096 0 1.385 0S1.913 -0.239 1.913 -0.528Z' id='g2-58'/>
+<path d='M2.022 -0.01C2.022 -0.667 1.773 -1.056 1.385 -1.056C1.056 -1.056 0.857 -0.807 0.857 -0.528C0.857 -0.259 1.056 0 1.385 0C1.504 0 1.634 -0.04 1.733 -0.13C1.763 -0.149 1.773 -0.159 1.783 -0.159S1.803 -0.149 1.803 -0.01C1.803 0.727 1.455 1.325 1.126 1.654C1.016 1.763 1.016 1.783 1.016 1.813C1.016 1.883 1.066 1.923 1.116 1.923C1.225 1.923 2.022 1.156 2.022 -0.01Z' id='g2-59'/>
+<path d='M4.832 -4.095L3.995 -6.077C3.965 -6.157 3.945 -6.197 3.945 -6.207C3.945 -6.267 4.115 -6.456 4.533 -6.496C4.633 -6.506 4.732 -6.516 4.732 -6.685C4.732 -6.804 4.613 -6.804 4.583 -6.804C4.174 -6.804 3.746 -6.775 3.328 -6.775C3.078 -6.775 2.461 -6.804 2.212 -6.804C2.152 -6.804 2.032 -6.804 2.032 -6.605C2.032 -6.496 2.132 -6.496 2.262 -6.496C2.859 -6.496 2.919 -6.396 3.009 -6.177L4.184 -3.397L2.082 -1.136L1.953 -1.026C1.465 -0.498 0.996 -0.339 0.488 -0.309C0.359 -0.299 0.269 -0.299 0.269 -0.11C0.269 -0.1 0.269 0 0.399 0C0.697 0 1.026 -0.03 1.335 -0.03C1.704 -0.03 2.092 0 2.451 0C2.511 0 2.63 0 2.63 -0.199C2.63 -0.299 2.531 -0.309 2.511 -0.309C2.421 -0.319 2.112 -0.339 2.112 -0.618C2.112 -0.777 2.262 -0.936 2.381 -1.066L3.397 -2.142L4.294 -3.118L5.3 -0.737C5.34 -0.628 5.35 -0.618 5.35 -0.598C5.35 -0.518 5.161 -0.349 4.772 -0.309C4.663 -0.299 4.573 -0.289 4.573 -0.12C4.573 0 4.682 0 4.722 0C5.001 0 5.699 -0.03 5.978 -0.03C6.227 -0.03 6.834 0 7.083 0C7.153 0 7.273 0 7.273 -0.189C7.273 -0.309 7.173 -0.309 7.093 -0.309C6.426 -0.319 6.406 -0.349 6.237 -0.747C5.848 -1.674 5.181 -3.228 4.951 -3.826C5.629 -4.523 6.675 -5.709 6.994 -5.988C7.283 -6.227 7.661 -6.466 8.259 -6.496C8.389 -6.506 8.478 -6.506 8.478 -6.695C8.478 -6.705 8.478 -6.804 8.349 -6.804C8.05 -6.804 7.721 -6.775 7.412 -6.775C7.044 -6.775 6.665 -6.804 6.306 -6.804C6.247 -6.804 6.117 -6.804 6.117 -6.605C6.117 -6.535 6.167 -6.506 6.237 -6.496C6.326 -6.486 6.635 -6.466 6.635 -6.187C6.635 -6.047 6.526 -5.918 6.446 -5.828L4.832 -4.095Z' id='g2-88'/>
+<path d='M3.298 2.391C3.298 2.361 3.298 2.341 3.128 2.172C1.883 0.917 1.564 -0.966 1.564 -2.491C1.564 -4.224 1.943 -5.958 3.168 -7.203C3.298 -7.323 3.298 -7.342 3.298 -7.372C3.298 -7.442 3.258 -7.472 3.198 -7.472C3.098 -7.472 2.202 -6.795 1.614 -5.529C1.106 -4.433 0.986 -3.328 0.986 -2.491C0.986 -1.714 1.096 -0.508 1.644 0.618C2.242 1.843 3.098 2.491 3.198 2.491C3.258 2.491 3.298 2.461 3.298 2.391Z' id='g4-40'/>
+<path d='M2.879 -2.491C2.879 -3.268 2.77 -4.473 2.222 -5.599C1.624 -6.824 0.767 -7.472 0.667 -7.472C0.608 -7.472 0.568 -7.432 0.568 -7.372C0.568 -7.342 0.568 -7.323 0.757 -7.143C1.733 -6.157 2.301 -4.573 2.301 -2.491C2.301 -0.787 1.933 0.966 0.697 2.222C0.568 2.341 0.568 2.361 0.568 2.391C0.568 2.451 0.608 2.491 0.667 2.491C0.767 2.491 1.664 1.813 2.252 0.548C2.76 -0.548 2.879 -1.654 2.879 -2.491Z' id='g4-41'/>
+<path d='M6.844 -3.258C6.994 -3.258 7.183 -3.258 7.183 -3.457S6.994 -3.656 6.854 -3.656H0.887C0.747 -3.656 0.558 -3.656 0.558 -3.457S0.747 -3.258 0.897 -3.258H6.844ZM6.854 -1.325C6.994 -1.325 7.183 -1.325 7.183 -1.524S6.994 -1.724 6.844 -1.724H0.897C0.747 -1.724 0.558 -1.724 0.558 -1.524S0.747 -1.325 0.887 -1.325H6.854Z' id='g4-61'/>
+<path d='M3.389 -4.219C3.438 -4.421 3.452 -4.442 3.605 -4.456C3.64 -4.463 3.884 -4.463 4.024 -4.463C4.449 -4.463 4.631 -4.463 4.805 -4.407C5.119 -4.31 5.133 -4.108 5.133 -3.857C5.133 -3.745 5.133 -3.654 5.084 -3.292L5.07 -3.215C5.07 -3.145 5.119 -3.11 5.189 -3.11C5.293 -3.11 5.307 -3.173 5.321 -3.285L5.509 -4.617C5.509 -4.714 5.426 -4.714 5.3 -4.714H1.011C0.837 -4.714 0.823 -4.714 0.774 -4.568L0.335 -3.333C0.328 -3.306 0.3 -3.243 0.3 -3.208C0.3 -3.18 0.314 -3.11 0.418 -3.11C0.509 -3.11 0.523 -3.145 0.565 -3.278C0.969 -4.394 1.2 -4.463 2.26 -4.463H2.552C2.762 -4.463 2.769 -4.456 2.769 -4.394C2.769 -4.387 2.769 -4.352 2.741 -4.247L1.82 -0.579C1.757 -0.321 1.736 -0.251 1.004 -0.251C0.753 -0.251 0.69 -0.251 0.69 -0.098C0.69 -0.077 0.704 0 0.809 0C1.004 0 1.213 -0.021 1.409 -0.021S1.813 -0.028 2.008 -0.028S2.441 -0.028 2.636 -0.021C2.824 -0.014 3.034 0 3.222 0C3.278 0 3.382 0 3.382 -0.153C3.382 -0.251 3.313 -0.251 3.096 -0.251C2.964 -0.251 2.824 -0.258 2.692 -0.265C2.455 -0.286 2.441 -0.314 2.441 -0.398C2.441 -0.446 2.441 -0.46 2.469 -0.558L3.389 -4.219Z' id='g3-84'/>
+<path d='M0.523 0.851C0.474 1.046 0.46 1.102 0.181 1.102C0.091 1.102 -0.007 1.102 -0.007 1.248C-0.007 1.325 0.056 1.353 0.091 1.353C0.272 1.353 0.502 1.325 0.69 1.325C0.928 1.325 1.193 1.353 1.423 1.353C1.485 1.353 1.562 1.332 1.562 1.2C1.562 1.102 1.465 1.102 1.381 1.102C1.227 1.102 1.039 1.102 1.039 1.018C1.039 0.983 1.088 0.802 1.116 0.697C1.2 0.328 1.297 -0.049 1.374 -0.342C1.458 -0.202 1.674 0.07 2.092 0.07C2.943 0.07 3.884 -0.872 3.884 -1.911C3.884 -2.727 3.32 -3.075 2.838 -3.075C2.406 -3.075 2.036 -2.783 1.848 -2.587C1.73 -2.985 1.339 -3.075 1.13 -3.075C0.858 -3.075 0.69 -2.894 0.579 -2.706C0.439 -2.469 0.328 -2.05 0.328 -2.008C0.328 -1.918 0.425 -1.918 0.446 -1.918C0.544 -1.918 0.551 -1.939 0.6 -2.127C0.704 -2.532 0.837 -2.88 1.109 -2.88C1.29 -2.88 1.339 -2.727 1.339 -2.538C1.339 -2.462 1.325 -2.371 1.318 -2.329L0.523 0.851ZM1.841 -2.239C2.246 -2.776 2.594 -2.88 2.817 -2.88C3.089 -2.88 3.327 -2.678 3.327 -2.204C3.327 -1.918 3.173 -1.206 2.964 -0.802C2.79 -0.46 2.448 -0.126 2.092 -0.126C1.597 -0.126 1.471 -0.663 1.471 -0.732C1.471 -0.76 1.485 -0.809 1.492 -0.837L1.841 -2.239Z' id='g3-112'/>
+<path d='M2.336 -4.435C2.336 -4.624 2.322 -4.631 2.127 -4.631C1.681 -4.191 1.046 -4.184 0.76 -4.184V-3.933C0.928 -3.933 1.388 -3.933 1.771 -4.129V-0.572C1.771 -0.342 1.771 -0.251 1.074 -0.251H0.809V0C0.934 -0.007 1.792 -0.028 2.05 -0.028C2.267 -0.028 3.145 -0.007 3.299 0V-0.251H3.034C2.336 -0.251 2.336 -0.342 2.336 -0.572V-4.435Z' id='g5-49'/>
+<path d='M3.522 -1.269H3.285C3.264 -1.116 3.194 -0.704 3.103 -0.635C3.048 -0.593 2.511 -0.593 2.413 -0.593H1.13C1.862 -1.241 2.106 -1.437 2.525 -1.764C3.041 -2.176 3.522 -2.608 3.522 -3.271C3.522 -4.115 2.783 -4.631 1.89 -4.631C1.025 -4.631 0.439 -4.024 0.439 -3.382C0.439 -3.027 0.739 -2.992 0.809 -2.992C0.976 -2.992 1.179 -3.11 1.179 -3.361C1.179 -3.487 1.13 -3.731 0.767 -3.731C0.983 -4.226 1.458 -4.38 1.785 -4.38C2.483 -4.38 2.845 -3.836 2.845 -3.271C2.845 -2.664 2.413 -2.183 2.19 -1.932L0.509 -0.272C0.439 -0.209 0.439 -0.195 0.439 0H3.313L3.522 -1.269Z' id='g5-50'/>
+<path d='M5.948 -5.669L6.087 -5.808C6.386 -6.107 6.715 -6.446 7.392 -6.496C7.502 -6.506 7.592 -6.506 7.592 -6.685C7.592 -6.765 7.542 -6.804 7.462 -6.804C7.203 -6.804 6.914 -6.775 6.645 -6.775C6.316 -6.775 5.968 -6.804 5.649 -6.804C5.589 -6.804 5.46 -6.804 5.46 -6.615C5.46 -6.506 5.559 -6.496 5.609 -6.496C5.679 -6.496 5.968 -6.476 5.968 -6.267C5.968 -6.097 5.738 -5.838 5.699 -5.788L3.387 -3.128L2.291 -6.087C2.232 -6.227 2.232 -6.247 2.232 -6.257C2.232 -6.496 2.72 -6.496 2.819 -6.496C2.959 -6.496 3.059 -6.496 3.059 -6.695C3.059 -6.804 2.939 -6.804 2.909 -6.804C2.63 -6.804 1.933 -6.775 1.654 -6.775C1.405 -6.775 0.787 -6.804 0.538 -6.804C0.478 -6.804 0.349 -6.804 0.349 -6.605C0.349 -6.496 0.448 -6.496 0.578 -6.496C1.176 -6.496 1.215 -6.406 1.305 -6.157L2.531 -2.879C2.54 -2.849 2.57 -2.74 2.57 -2.71S2.172 -1.076 2.122 -0.897C1.993 -0.349 1.983 -0.319 1.186 -0.309C0.996 -0.309 0.917 -0.309 0.917 -0.11C0.917 0 1.036 0 1.056 0C1.335 0 2.032 -0.03 2.311 -0.03S3.308 0 3.587 0C3.656 0 3.776 0 3.776 -0.199C3.776 -0.309 3.686 -0.309 3.497 -0.309C3.477 -0.309 3.288 -0.309 3.118 -0.329C2.909 -0.349 2.849 -0.369 2.849 -0.488C2.849 -0.558 2.939 -0.907 2.989 -1.116L3.337 -2.521C3.387 -2.71 3.397 -2.74 3.477 -2.829L5.948 -5.669Z' id='g2-89'/>
+<path d='M5.729 -5.669C5.729 -6.416 5.181 -7.034 4.374 -7.034C3.796 -7.034 3.517 -6.874 3.168 -6.615C2.62 -6.217 2.072 -5.25 1.883 -4.493L0.299 1.833C0.289 1.873 0.339 1.933 0.418 1.933S0.528 1.913 0.538 1.883L1.235 -0.867C1.425 -0.269 1.863 0.1 2.59 0.1S4.065 -0.249 4.513 -0.687C4.991 -1.146 5.31 -1.783 5.31 -2.521C5.31 -3.238 4.941 -3.756 4.583 -4.005C5.161 -4.334 5.729 -4.951 5.729 -5.669ZM3.935 -4.015C3.806 -3.965 3.696 -3.945 3.457 -3.945C3.318 -3.945 3.118 -3.935 3.019 -3.985C3.039 -4.085 3.397 -4.065 3.507 -4.065C3.716 -4.065 3.806 -4.065 3.935 -4.015ZM5.171 -5.898C5.171 -5.2 4.792 -4.483 4.274 -4.174C4.005 -4.274 3.806 -4.294 3.507 -4.294C3.298 -4.294 2.74 -4.304 2.74 -3.975C2.73 -3.696 3.248 -3.726 3.427 -3.726C3.796 -3.726 3.945 -3.736 4.244 -3.856C4.623 -3.497 4.672 -3.188 4.682 -2.73C4.702 -2.152 4.463 -1.405 4.184 -1.016C3.796 -0.478 3.128 -0.12 2.56 -0.12C1.803 -0.12 1.425 -0.697 1.425 -1.405C1.425 -1.504 1.425 -1.654 1.474 -1.843L2.112 -4.364C2.331 -5.22 3.049 -6.804 4.244 -6.804C4.822 -6.804 5.171 -6.496 5.171 -5.898Z' id='g2-12'/>
+<path d='M4.075 -2.291H6.854C6.994 -2.291 7.183 -2.291 7.183 -2.491S6.994 -2.69 6.854 -2.69H4.075V-5.479C4.075 -5.619 4.075 -5.808 3.875 -5.808S3.676 -5.619 3.676 -5.479V-2.69H0.887C0.747 -2.69 0.558 -2.69 0.558 -2.491S0.747 -2.291 0.887 -2.291H3.676V0.498C3.676 0.638 3.676 0.827 3.875 0.827S4.075 0.638 4.075 0.498V-2.291Z' id='g4-43'/>
+<path d='M2.491 -6.914L1.156 -5.559L1.335 -5.38L2.491 -6.396L3.636 -5.38L3.816 -5.559L2.491 -6.914Z' id='g4-94'/>
+<path d='M3.062 -4.359C3.062 -4.477 2.971 -4.624 2.783 -4.624C2.58 -4.624 2.392 -4.428 2.392 -4.24C2.392 -4.129 2.476 -3.975 2.671 -3.975C2.859 -3.975 3.062 -4.156 3.062 -4.359ZM1.583 0.342C1.465 0.823 1.095 1.227 0.683 1.227C0.593 1.227 0.509 1.213 0.432 1.186C0.614 1.102 0.669 0.934 0.669 0.83C0.669 0.663 0.537 0.572 0.398 0.572C0.181 0.572 0 0.76 0 0.983C0 1.248 0.272 1.423 0.69 1.423S1.925 1.172 2.141 0.321L2.769 -2.176C2.79 -2.253 2.803 -2.315 2.803 -2.42C2.803 -2.803 2.476 -3.075 2.057 -3.075C1.283 -3.075 0.837 -2.106 0.837 -2.008C0.837 -1.918 0.934 -1.918 0.955 -1.918C1.039 -1.918 1.046 -1.939 1.095 -2.043C1.269 -2.448 1.632 -2.88 2.036 -2.88C2.211 -2.88 2.273 -2.762 2.273 -2.538C2.273 -2.462 2.26 -2.364 2.253 -2.329L1.583 0.342Z' id='g3-106'/>
+<path d='M3.599 -2.225C3.599 -2.992 3.508 -3.543 3.187 -4.031C2.971 -4.352 2.538 -4.631 1.981 -4.631C0.363 -4.631 0.363 -2.727 0.363 -2.225S0.363 0.139 1.981 0.139S3.599 -1.723 3.599 -2.225ZM1.981 -0.056C1.66 -0.056 1.234 -0.244 1.095 -0.816C0.997 -1.227 0.997 -1.799 0.997 -2.315C0.997 -2.824 0.997 -3.354 1.102 -3.738C1.248 -4.289 1.695 -4.435 1.981 -4.435C2.357 -4.435 2.72 -4.205 2.845 -3.801C2.957 -3.424 2.964 -2.922 2.964 -2.315C2.964 -1.799 2.964 -1.283 2.873 -0.844C2.734 -0.209 2.26 -0.056 1.981 -0.056Z' id='g5-48'/>
+<path d='M5.356 -2.343C5.461 -2.343 5.621 -2.343 5.621 -2.518C5.621 -2.685 5.454 -2.685 5.363 -2.685H0.746C0.656 -2.685 0.488 -2.685 0.488 -2.518C0.488 -2.343 0.649 -2.343 0.753 -2.343H5.356ZM5.363 -0.809C5.454 -0.809 5.621 -0.809 5.621 -0.976C5.621 -1.151 5.461 -1.151 5.356 -1.151H0.753C0.649 -1.151 0.488 -1.151 0.488 -0.976C0.488 -0.809 0.656 -0.809 0.746 -0.809H5.363Z' id='g5-61'/>
+<path d='M12.613 13.948L13.818 10.76H13.569C13.181 11.796 12.125 12.473 10.979 12.772C10.77 12.822 9.793 13.081 7.88 13.081H1.873L6.944 7.133C7.014 7.054 7.034 7.024 7.034 6.974C7.034 6.954 7.034 6.924 6.964 6.824L2.321 0.478H7.781C9.116 0.478 10.022 0.618 10.112 0.638C10.65 0.717 11.517 0.887 12.304 1.385C12.553 1.544 13.23 1.993 13.569 2.8H13.818L12.613 0H0.837C0.608 0 0.598 0.01 0.568 0.07C0.558 0.1 0.558 0.289 0.558 0.399L5.828 7.611L0.667 13.659C0.568 13.778 0.568 13.828 0.568 13.838C0.568 13.948 0.658 13.948 0.837 13.948H12.613Z' id='g6-88'/>
+<path d='M2.929 -6.376C2.929 -6.615 2.929 -6.635 2.7 -6.635C2.082 -5.998 1.205 -5.998 0.887 -5.998V-5.689C1.086 -5.689 1.674 -5.689 2.192 -5.948V-0.787C2.192 -0.428 2.162 -0.309 1.265 -0.309H0.946V0C1.295 -0.03 2.162 -0.03 2.56 -0.03S3.826 -0.03 4.174 0V-0.309H3.856C2.959 -0.309 2.929 -0.418 2.929 -0.787V-6.376Z' id='g4-49'/>
+<path d='M3.656 -3.985H4.513C4.712 -3.985 4.812 -3.985 4.812 -4.184C4.812 -4.294 4.712 -4.294 4.543 -4.294H3.716L3.925 -5.43C3.965 -5.639 4.105 -6.346 4.164 -6.466C4.254 -6.655 4.423 -6.804 4.633 -6.804C4.672 -6.804 4.932 -6.804 5.121 -6.625C4.682 -6.585 4.583 -6.237 4.583 -6.087C4.583 -5.858 4.762 -5.738 4.951 -5.738C5.21 -5.738 5.499 -5.958 5.499 -6.336C5.499 -6.795 5.041 -7.024 4.633 -7.024C4.294 -7.024 3.666 -6.844 3.367 -5.858C3.308 -5.649 3.278 -5.549 3.039 -4.294H2.351C2.162 -4.294 2.052 -4.294 2.052 -4.105C2.052 -3.985 2.142 -3.985 2.331 -3.985H2.989L2.242 -0.05C2.062 0.917 1.893 1.823 1.375 1.823C1.335 1.823 1.086 1.823 0.897 1.644C1.355 1.614 1.445 1.255 1.445 1.106C1.445 0.877 1.265 0.757 1.076 0.757C0.817 0.757 0.528 0.976 0.528 1.355C0.528 1.803 0.966 2.042 1.375 2.042C1.923 2.042 2.321 1.455 2.501 1.076C2.819 0.448 3.049 -0.757 3.059 -0.827L3.656 -3.985Z' id='g2-102'/>
+<path d='M4.822 -3.955L6.496 -6.157C6.605 -6.296 6.615 -6.306 6.964 -6.336C7.203 -6.366 7.263 -6.366 7.542 -6.366H7.831V-6.834C7.412 -6.804 6.924 -6.804 6.496 -6.804C6.107 -6.804 5.34 -6.804 4.981 -6.834V-6.366C5.161 -6.366 5.549 -6.366 5.898 -6.257C5.888 -6.237 5.838 -6.177 5.818 -6.147L4.503 -4.403L3.078 -6.366H3.905V-6.834C3.497 -6.804 2.55 -6.804 2.102 -6.804C1.704 -6.804 0.837 -6.804 0.488 -6.834V-6.366H1.465L3.676 -3.308L1.664 -0.667C1.574 -0.548 1.554 -0.528 1.235 -0.498C1.036 -0.478 0.827 -0.468 0.628 -0.468H0.339V0C0.757 -0.03 1.245 -0.03 1.674 -0.03C2.062 -0.03 2.829 -0.03 3.188 0V-0.468C3.009 -0.468 2.62 -0.468 2.271 -0.578C2.281 -0.598 2.331 -0.658 2.351 -0.687L3.995 -2.869L5.729 -0.468H4.902V0C5.31 -0.03 6.257 -0.03 6.705 -0.03C7.103 -0.03 7.97 -0.03 8.319 0V-0.468H7.342L4.822 -3.955Z' id='g0-88'/>
+<path d='M5.041 -3.746C5.111 -3.885 5.141 -3.955 5.778 -3.955V-4.423C5.539 -4.403 5.24 -4.394 4.991 -4.394S4.294 -4.413 4.085 -4.423V-3.955C4.105 -3.955 4.553 -3.955 4.553 -3.836C4.553 -3.826 4.513 -3.726 4.503 -3.716L3.357 -1.265L2.092 -3.955H2.63V-4.423C2.301 -4.403 1.405 -4.394 1.395 -4.394C1.116 -4.394 0.667 -4.413 0.259 -4.423V-3.955H0.897L2.76 0L2.531 0.478C2.311 0.956 1.993 1.634 1.285 1.634C1.146 1.634 1.126 1.624 1.046 1.594C1.136 1.554 1.365 1.415 1.365 1.066C1.365 0.737 1.126 0.498 0.787 0.498C0.508 0.498 0.219 0.687 0.219 1.076C0.219 1.584 0.687 1.993 1.285 1.993C2.052 1.993 2.63 1.375 2.899 0.807L5.041 -3.746Z' id='g0-121'/>
+<path d='M6.565 -2.291C6.735 -2.291 6.914 -2.291 6.914 -2.491S6.735 -2.69 6.565 -2.69H1.176C1.006 -2.69 0.827 -2.69 0.827 -2.491S1.006 -2.291 1.176 -2.291H6.565Z' id='g1-0'/>
+<path d='M3.736 -6.117C3.796 -6.356 3.826 -6.456 4.015 -6.486C4.105 -6.496 4.423 -6.496 4.623 -6.496C5.33 -6.496 6.436 -6.496 6.436 -5.509C6.436 -5.171 6.276 -4.483 5.888 -4.095C5.629 -3.836 5.101 -3.517 4.204 -3.517H3.088L3.736 -6.117ZM5.171 -3.387C6.177 -3.606 7.362 -4.304 7.362 -5.31C7.362 -6.167 6.466 -6.804 5.161 -6.804H2.321C2.122 -6.804 2.032 -6.804 2.032 -6.605C2.032 -6.496 2.122 -6.496 2.311 -6.496C2.331 -6.496 2.521 -6.496 2.69 -6.476C2.869 -6.456 2.959 -6.446 2.959 -6.316C2.959 -6.276 2.949 -6.247 2.919 -6.127L1.584 -0.777C1.484 -0.389 1.465 -0.309 0.677 -0.309C0.498 -0.309 0.408 -0.309 0.408 -0.11C0.408 0 0.528 0 0.548 0C0.827 0 1.524 -0.03 1.803 -0.03S2.79 0 3.068 0C3.148 0 3.268 0 3.268 -0.199C3.268 -0.309 3.178 -0.309 2.989 -0.309C2.62 -0.309 2.341 -0.309 2.341 -0.488C2.341 -0.548 2.361 -0.598 2.371 -0.658L3.029 -3.298H4.214C5.121 -3.298 5.3 -2.74 5.3 -2.391C5.3 -2.242 5.22 -1.933 5.161 -1.704C5.091 -1.425 5.001 -1.056 5.001 -0.857C5.001 0.219 6.197 0.219 6.326 0.219C7.173 0.219 7.522 -0.787 7.522 -0.927C7.522 -1.046 7.412 -1.046 7.402 -1.046C7.313 -1.046 7.293 -0.976 7.273 -0.907C7.024 -0.169 6.595 0 6.366 0C6.037 0 5.968 -0.219 5.968 -0.608C5.968 -0.917 6.027 -1.425 6.067 -1.743C6.087 -1.883 6.107 -2.072 6.107 -2.212C6.107 -2.979 5.44 -3.288 5.171 -3.387Z' id='g2-82'/>
+<path d='M6.426 -6.924C6.426 -6.954 6.406 -7.024 6.316 -7.024C6.267 -7.024 6.257 -7.014 6.137 -6.874L5.659 -6.306C5.4 -6.775 4.882 -7.024 4.234 -7.024C2.969 -7.024 1.773 -5.878 1.773 -4.672C1.773 -3.866 2.301 -3.407 2.809 -3.258L3.875 -2.979C4.244 -2.889 4.792 -2.74 4.792 -1.923C4.792 -1.026 3.975 -0.09 2.999 -0.09C2.361 -0.09 1.255 -0.309 1.255 -1.544C1.255 -1.783 1.305 -2.022 1.315 -2.082C1.325 -2.122 1.335 -2.132 1.335 -2.152C1.335 -2.252 1.265 -2.262 1.215 -2.262S1.146 -2.252 1.116 -2.222C1.076 -2.182 0.518 0.09 0.518 0.12C0.518 0.179 0.568 0.219 0.628 0.219C0.677 0.219 0.687 0.209 0.807 0.07L1.295 -0.498C1.724 0.08 2.401 0.219 2.979 0.219C4.334 0.219 5.509 -1.106 5.509 -2.341C5.509 -3.029 5.171 -3.367 5.021 -3.507C4.792 -3.736 4.643 -3.776 3.756 -4.005C3.537 -4.065 3.178 -4.164 3.088 -4.184C2.819 -4.274 2.481 -4.563 2.481 -5.091C2.481 -5.898 3.278 -6.745 4.224 -6.745C5.051 -6.745 5.659 -6.316 5.659 -5.2C5.659 -4.882 5.619 -4.702 5.619 -4.643C5.619 -4.633 5.619 -4.543 5.738 -4.543C5.838 -4.543 5.848 -4.573 5.888 -4.742L6.426 -6.924Z' id='g2-83'/>
+<path d='M3.328 -3.009C3.387 -3.268 3.616 -4.184 4.314 -4.184C4.364 -4.184 4.603 -4.184 4.812 -4.055C4.533 -4.005 4.334 -3.756 4.334 -3.517C4.334 -3.357 4.443 -3.168 4.712 -3.168C4.932 -3.168 5.25 -3.347 5.25 -3.746C5.25 -4.264 4.663 -4.403 4.324 -4.403C3.746 -4.403 3.397 -3.875 3.278 -3.646C3.029 -4.304 2.491 -4.403 2.202 -4.403C1.166 -4.403 0.598 -3.118 0.598 -2.869C0.598 -2.77 0.697 -2.77 0.717 -2.77C0.797 -2.77 0.827 -2.79 0.847 -2.879C1.186 -3.935 1.843 -4.184 2.182 -4.184C2.371 -4.184 2.72 -4.095 2.72 -3.517C2.72 -3.208 2.55 -2.54 2.182 -1.146C2.022 -0.528 1.674 -0.11 1.235 -0.11C1.176 -0.11 0.946 -0.11 0.737 -0.239C0.986 -0.289 1.205 -0.498 1.205 -0.777C1.205 -1.046 0.986 -1.126 0.837 -1.126C0.538 -1.126 0.289 -0.867 0.289 -0.548C0.289 -0.09 0.787 0.11 1.225 0.11C1.883 0.11 2.242 -0.588 2.271 -0.648C2.391 -0.279 2.75 0.11 3.347 0.11C4.374 0.11 4.941 -1.176 4.941 -1.425C4.941 -1.524 4.852 -1.524 4.822 -1.524C4.732 -1.524 4.712 -1.484 4.692 -1.415C4.364 -0.349 3.686 -0.11 3.367 -0.11C2.979 -0.11 2.819 -0.428 2.819 -0.767C2.819 -0.986 2.879 -1.205 2.989 -1.644L3.328 -3.009Z' id='g2-120'/>
+<path d='M4.842 -3.796C4.882 -3.935 4.882 -3.955 4.882 -4.025C4.882 -4.204 4.742 -4.294 4.593 -4.294C4.493 -4.294 4.334 -4.234 4.244 -4.085C4.224 -4.035 4.144 -3.726 4.105 -3.547C4.035 -3.288 3.965 -3.019 3.905 -2.75L3.457 -0.956C3.417 -0.807 2.989 -0.11 2.331 -0.11C1.823 -0.11 1.714 -0.548 1.714 -0.917C1.714 -1.375 1.883 -1.993 2.222 -2.869C2.381 -3.278 2.421 -3.387 2.421 -3.587C2.421 -4.035 2.102 -4.403 1.604 -4.403C0.658 -4.403 0.289 -2.959 0.289 -2.869C0.289 -2.77 0.389 -2.77 0.408 -2.77C0.508 -2.77 0.518 -2.79 0.568 -2.949C0.837 -3.885 1.235 -4.184 1.574 -4.184C1.654 -4.184 1.823 -4.184 1.823 -3.866C1.823 -3.616 1.724 -3.357 1.654 -3.168C1.255 -2.112 1.076 -1.544 1.076 -1.076C1.076 -0.189 1.704 0.11 2.291 0.11C2.68 0.11 3.019 -0.06 3.298 -0.339C3.168 0.179 3.049 0.667 2.65 1.196C2.391 1.534 2.012 1.823 1.554 1.823C1.415 1.823 0.966 1.793 0.797 1.405C0.956 1.405 1.086 1.405 1.225 1.285C1.325 1.196 1.425 1.066 1.425 0.877C1.425 0.568 1.156 0.528 1.056 0.528C0.827 0.528 0.498 0.687 0.498 1.176C0.498 1.674 0.936 2.042 1.554 2.042C2.58 2.042 3.606 1.136 3.885 0.01L4.842 -3.796Z' id='g2-121'/>
+<path d='M5.816 -4.003C5.886 -4.268 5.998 -4.498 6.555 -4.512C6.59 -4.512 6.695 -4.519 6.695 -4.666C6.695 -4.707 6.66 -4.763 6.59 -4.763C6.36 -4.763 6.102 -4.735 5.865 -4.735C5.698 -4.735 5.293 -4.763 5.126 -4.763C5.091 -4.763 4.986 -4.763 4.986 -4.61C4.986 -4.519 5.077 -4.512 5.14 -4.512C5.467 -4.505 5.586 -4.4 5.586 -4.226C5.586 -4.17 5.579 -4.135 5.558 -4.059L4.798 -1.018L3.027 -4.645C2.971 -4.763 2.957 -4.763 2.79 -4.763H1.834C1.702 -4.763 1.611 -4.763 1.611 -4.61C1.611 -4.512 1.695 -4.512 1.841 -4.512S2.141 -4.505 2.287 -4.477L1.353 -0.746C1.29 -0.481 1.172 -0.272 0.628 -0.251C0.579 -0.251 0.481 -0.244 0.481 -0.105C0.481 -0.028 0.537 0 0.586 0C0.816 0 1.074 -0.028 1.311 -0.028C1.478 -0.028 1.883 0 2.05 0C2.12 0 2.19 -0.035 2.19 -0.146C2.19 -0.244 2.106 -0.251 2.029 -0.251C1.59 -0.265 1.59 -0.446 1.59 -0.544C1.59 -0.572 1.59 -0.607 1.618 -0.718L2.511 -4.289L4.547 -0.119C4.603 -0.007 4.631 0 4.7 0C4.812 0 4.812 -0.021 4.847 -0.146L5.816 -4.003Z' id='g3-78'/>
+<path d='M2.26 -4.359C2.26 -4.47 2.176 -4.624 1.981 -4.624C1.792 -4.624 1.59 -4.442 1.59 -4.24C1.59 -4.122 1.681 -3.975 1.869 -3.975C2.071 -3.975 2.26 -4.17 2.26 -4.359ZM0.837 -0.816C0.809 -0.725 0.774 -0.642 0.774 -0.523C0.774 -0.195 1.053 0.07 1.437 0.07C2.134 0.07 2.441 -0.893 2.441 -0.997C2.441 -1.088 2.35 -1.088 2.329 -1.088C2.232 -1.088 2.225 -1.046 2.197 -0.969C2.036 -0.411 1.73 -0.126 1.458 -0.126C1.318 -0.126 1.283 -0.216 1.283 -0.37C1.283 -0.53 1.332 -0.663 1.395 -0.816C1.465 -1.004 1.541 -1.193 1.618 -1.374C1.681 -1.541 1.932 -2.176 1.96 -2.26C1.981 -2.329 2.001 -2.413 2.001 -2.483C2.001 -2.81 1.723 -3.075 1.339 -3.075C0.649 -3.075 0.328 -2.127 0.328 -2.008C0.328 -1.918 0.425 -1.918 0.446 -1.918C0.544 -1.918 0.551 -1.953 0.572 -2.029C0.753 -2.629 1.06 -2.88 1.318 -2.88C1.43 -2.88 1.492 -2.824 1.492 -2.636C1.492 -2.476 1.451 -2.371 1.276 -1.939L0.837 -0.816Z' id='g3-105'/>
+<path d='M1.913 -2.491C1.913 -2.78 1.674 -3.019 1.385 -3.019S0.857 -2.78 0.857 -2.491S1.096 -1.963 1.385 -1.963S1.913 -2.202 1.913 -2.491Z' id='g1-1'/>
+<path d='M4.752 -2.351C4.752 -3.915 3.826 -4.403 3.088 -4.403C1.724 -4.403 0.408 -2.979 0.408 -1.574C0.408 -0.648 1.006 0.11 2.022 0.11C2.65 0.11 3.367 -0.12 4.125 -0.727C4.254 -0.199 4.583 0.11 5.031 0.11C5.559 0.11 5.868 -0.438 5.868 -0.598C5.868 -0.667 5.808 -0.697 5.748 -0.697C5.679 -0.697 5.649 -0.667 5.619 -0.598C5.44 -0.11 5.081 -0.11 5.061 -0.11C4.752 -0.11 4.752 -0.887 4.752 -1.126C4.752 -1.335 4.752 -1.355 4.852 -1.474C5.788 -2.65 5.998 -3.806 5.998 -3.816C5.998 -3.836 5.988 -3.915 5.878 -3.915C5.778 -3.915 5.778 -3.885 5.729 -3.706C5.549 -3.078 5.22 -2.321 4.752 -1.733V-2.351ZM4.085 -0.986C3.208 -0.219 2.441 -0.11 2.042 -0.11C1.445 -0.11 1.146 -0.558 1.146 -1.196C1.146 -1.684 1.405 -2.76 1.724 -3.268C2.192 -3.995 2.73 -4.184 3.078 -4.184C4.065 -4.184 4.065 -2.879 4.065 -2.102C4.065 -1.733 4.065 -1.156 4.085 -0.986Z' id='g2-11'/>
+<path d='M0.851 -0.439C0.823 -0.349 0.781 -0.174 0.781 -0.153C0.781 0 0.907 0.07 1.018 0.07C1.144 0.07 1.255 -0.021 1.29 -0.084S1.381 -0.37 1.416 -0.516C1.451 -0.649 1.527 -0.969 1.569 -1.144C1.611 -1.297 1.653 -1.451 1.688 -1.611C1.764 -1.897 1.778 -1.953 1.981 -2.239C2.176 -2.518 2.504 -2.88 3.027 -2.88C3.431 -2.88 3.438 -2.525 3.438 -2.392C3.438 -1.974 3.138 -1.2 3.027 -0.907C2.95 -0.711 2.922 -0.649 2.922 -0.53C2.922 -0.16 3.229 0.07 3.585 0.07C4.282 0.07 4.589 -0.893 4.589 -0.997C4.589 -1.088 4.498 -1.088 4.477 -1.088C4.38 -1.088 4.373 -1.046 4.345 -0.969C4.184 -0.411 3.884 -0.126 3.605 -0.126C3.459 -0.126 3.431 -0.223 3.431 -0.37C3.431 -0.53 3.466 -0.621 3.592 -0.934C3.675 -1.151 3.961 -1.89 3.961 -2.28C3.961 -2.957 3.424 -3.075 3.055 -3.075C2.476 -3.075 2.085 -2.72 1.876 -2.441C1.827 -2.922 1.416 -3.075 1.13 -3.075C0.83 -3.075 0.669 -2.859 0.579 -2.699C0.425 -2.441 0.328 -2.043 0.328 -2.008C0.328 -1.918 0.425 -1.918 0.446 -1.918C0.544 -1.918 0.551 -1.939 0.6 -2.127C0.704 -2.538 0.837 -2.88 1.109 -2.88C1.29 -2.88 1.339 -2.727 1.339 -2.538C1.339 -2.406 1.276 -2.148 1.227 -1.96S1.109 -1.485 1.074 -1.332L0.851 -0.439Z' id='g3-110'/>
+</defs>
+</svg>
+
+</body>
+<script type="text/javascript">
+  // ---------------------------------------------
+      // Classname helpers
+      // ---------------------------------------------
+      function hasClassName(elem,cname) {
+        if (elem==null) return false;
+        var regex = new RegExp("\\s*\\b" + cname + "\\b","g");
+        return regex.test(elem.className);
+      }
+      
+      function removeClassName(elem,cname) {
+        var regex = new RegExp("\\s*\\b" + cname + "\\b","g");
+        elem.className = elem.className.replace( regex, "" );
+      }
+      
+      function addClassName(elem,cname) {
+        if (!hasClassName(elem,cname)) elem.className = elem.className + " " + cname;
+      }
+      
+      function toggleClassName(elem,cname) {
+        var regex = new RegExp("\\s*\\b" + cname + "\\b","g");
+        var classes = elem.className;
+        if (regex.test(classes)) {
+          elem.className = classes.replace( regex, "" );
+          return false;
+        }
+        else {
+          elem.className = classes + " " + cname;
+          return true;
+        }
+      }
+      
+      // ---------------------------------------------
+      // Reliable offset determination
+      // ---------------------------------------------
+      
+      function getWindowOffset(elem) {
+        var box;
+        if (elem.getBoundingClientRect) {
+          box = elem.getBoundingClientRect();
+        }
+        else if (elem.offsetParent && elem.offsetParent.getBoundingClientRect) {
+          // text node
+          box = elem.offsetParent.getBoundingClientRect();
+          box.top = box.top + elem.offsetTop;
+          box.left = box.left + elem.offsetLeft;
+        }
+        else {
+          box = { top: 0, left : 0 };
+        }
+        return box;
+      }
+      
+      // Return the viewport position: -1 (before), 0 (visible), 1 (after)
+      function viewportPosition(elem) {
+        var pos = getWindowOffset(elem)
+        if (pos.top < 0 || pos.left < 0) 
+          return -1;
+        else if (pos.top > (window.innerHeight || document.documentElement.clientHeight) ||
+                 pos.left > (window.innerWidth || document.documentElement.clientWidth)) 
+          return 1;
+        else 
+          return 0;
+      }
+      
+      // ---------------------------------------------
+      // Expand the toc sections and align headers with the toc.
+      // ---------------------------------------------
+      
+      var side = document.getElementsByClassName("sidepanel")[0];
+      var afterScroll = null;
+      
+      // Align a heading at the top of the page with the toc
+      function alignHeading( elem ) {
+        var ofs     = getWindowOffset(elem).top;
+        var sideofs = getWindowOffset(side).top;
+        if (ofs >= 0 && ofs < sideofs) {
+          window.scrollBy(0, ofs - sideofs);
+        } 
+      }
+      
+      // Expand, or unexpand, one toc item
+      // The class is 'auto-expands' or 'click-expands'; the latter is sticky
+      // as it is user induced and will not be automatically unexpanded.
+      function itemExpand(item,cls,expand) {
+        // get possible toc block (that follows the item)
+        var tocblock = item.nextElementSibling;
+        if (tocblock==null || !hasClassName(tocblock,"tocblock")) return;
+       
+        // set expand class
+        if (expand===undefined) expand = !hasClassName(tocblock,"expands");
+        if (cls===undefined) cls = "auto-expands" 
+        if (cls==="click-expands") removeClassName(tocblock,"auto-expands");
+        if (expand && !hasClassName(tocblock,cls)) {
+          toggleClassName(tocblock,cls); 
+        }
+        else if (!expand && hasClassName(tocblock,cls)) {
+          toggleClassName(tocblock,cls);
+          item.firstElementChild.className = "unexpanded";
+        }
+        
+        // set expansion icon
+        if (hasClassName(tocblock,"auto-expands") || hasClassName(tocblock,"click-expands")) {
+          item.firstElementChild.className = "expanded";   
+        }
+        else {
+          item.firstElementChild.className = "unexpanded";
+        }
+      }
+      
+      // Expand a single item in the toc (and unexpand others).
+      function itemExpandOne(item) {
+        // unexpand anything that was expanded
+        [].forEach.call( document.querySelectorAll(".tocitem"), function(item) {
+          removeClassName(item,"current");
+          itemExpand(item,"auto-expands",false);      
+        });
+        addClassName(item,"current");
+        // expand the chain of parent blocks
+        var tocblock = null;
+        var toc = item.nextElementSibling;
+        if (toc && hasClassName(toc,"tocblock")) { 
+          tocblock = toc;
+        }
+        else {
+          tocblock = item.parentElement;
+        }
+        while(tocblock != null && !hasClassName(tocblock,"toc")) {
+          if (hasClassName(tocblock,"tocblock")) {
+            item = tocblock.previousElementSibling;
+            if (item != null) itemExpand(item,"auto-expands",true);
+          }
+          tocblock = tocblock.parentElement;
+        }
+      }
+      
+      // Auto expand the toc at current  position in the document 
+      function expandToc() {
+        // find the first section heading that is visible in the viewport 
+        var current = null;
+        [].every.call( document.querySelectorAll(".tocitem"), function(item) {
+          var target = document.getElementById( item.getAttribute("data-toc-target") );
+          var pos = viewportPosition(target);
+          if (pos <= 0) current = item;
+          return (pos < 0);
+        });
+        // if found, expand the corresponding item
+        if (current != null) itemExpandOne(current);
+      }
+      
+      document.addEventListener("load", function(ev) { expandToc(); });
+      document.addEventListener("resize", function(ev) { expandToc(); });
+      
+      // fire at end of scrolling
+      var scrollHandler = null;
+      document.addEventListener("scroll", function(ev) {
+        if (scrollHandler) clearTimeout(scrollHandler);
+        scrollHandler = setTimeout( function() {
+          scrollHandler = null;
+          if (afterScroll) {
+            afterScroll();
+            afterScroll = null;
+          }
+          else {
+            expandToc();
+          }
+        }, 50 );
+      });
+      
+      // ---------------------------------------------
+      // Install event handlers for all items in the TOC
+      // ---------------------------------------------
+      [].forEach.call( document.querySelectorAll(".tocitem"), function(item) {
+        // only for toc items with a target
+        var target = document.getElementById( item.getAttribute("data-toc-target") );
+        if (!target) return;
+        
+        // ensure every tocblock has a expansion icon in front
+        // (the optional nested tocblock follows the item)
+        var tocblock = null;
+        var toc = item.nextElementSibling;  
+        if (toc && hasClassName(toc,"tocblock")) { 
+          tocblock = toc;
+          item.innerHTML = "<span class='unexpanded'></span>" + item.innerHTML;   
+        } 
+        
+        // on a click
+        item.addEventListener( "click", function() {
+          // expand this toc item and set expansion icon
+          itemExpand(item,"click-expands");
+          // after navigation, align the heading with the toc
+          afterScroll = (function() {
+            alignHeading(target);
+          });    
+        }); 
+      });
+</script>
+
+</html>
