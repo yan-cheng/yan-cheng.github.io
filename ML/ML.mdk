@@ -294,18 +294,18 @@ R(\mathbf{A},\mathbf{B},\mathbf{x}^\prime) = \frac{\mathbf{x}^{\prime H} \mathbf
 
 ### 二分类 LDA
 
-回到 LDA 的问题上。假设我们的数据集 $D = {(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i\in {0,1}$。我们定义 $N_j(j=0,1)$ 为第 $j$ 类样本的个数，$\mathbf{X}_j(j=0,1)$ 为第 $j$ 类样本的集合，而 $\mathbf{\mu}_j(j=0,1)$ 为第 $j$ 类样本的均值向量，定义 $\sum_j(j=0,1)$ 为第 $j$ 类样本的协方差矩阵（严格说是缺少分母部分的协方差矩阵）。
+回到 LDA 的问题上。假设我们的数据集 $D = {(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i\in \{0,1\}$。我们定义 $N_j(j=0,1)$ 为第 $j$ 类样本的个数，$\mathbf{X}_j(j=0,1)$ 为第 $j$ 类样本的集合，而 $\mathbf{\mu}_j(j=0,1)$ 为第 $j$ 类样本的均值向量，定义 $\sum_j(j=0,1)$ 为第 $j$ 类样本的协方差矩阵（严格说是缺少分母部分的协方差矩阵）。
 
 $\mathbf{\mu}_j$ 的表达式为：
 ~ Equation
-\mathbf{\mu}_j=\frac{1}{N}_j∑_{\mathbf{x} \in \mathbf{X}_j} \mathbf{x} (j=0,1)
+\mathbf{\mu}_j=\frac{1}{N}_j \sum_{\mathbf{x} \in \mathbf{X}_j} \mathbf{x} \quad (j=0,1)
 ~
 $\sum_j$ 的表达式为：
 ~ Equation
-\sum_j = \sum_{\mathbf{x} \in \mathbf{X}_j}(\mathbf{x}-\mathbf{\mu}_j)(\mathbf{x}-\mathbf{\mu}_j)^T (j=0,1)
+\sum_j = \sum_{\mathbf{x} \in \mathbf{X}_j}(\mathbf{x}-\mathbf{\mu}_j)(\mathbf{x}-\mathbf{\mu}_j)^T \quad (j=0,1)
 ~
 
-由于是两类数据，因此只需要将数据投影到一条直线上即可。假设投影直线是向量 $\mathbf{w}$，则对任意一个样本本 $\mathbf{x}_i$，它在直线 $\mathbf{w}$ 的投影为 $\mathbf{w}^T\mathbf{x}_i$，对于两个类别的中心点 $\mathbf{\mu}_0$、$\mathbf{\mu}_1$ 在直线 $\mathbf{w}$ 的投影为 $\mathbf{w}^T\mathbf{\mu}_0$ 和 $\mathbf{w}^T\mathbf{\mu}_1$。由于 LDA 需要让不同类别的数据的类别中心之间的距离尽可能的大，也就是要最大化 $||\mathbf{w}^T\mathbf{\mu}_0-\mathbf{w}^T\mathbf{\mu}_1||_2^2$；同时同一种类别数据的投影点尽可能的接近，也就是要同类样本投影点的协方差 $\mathbf{w}^T \sum_0 \mathbf{w}$ 和 $\mathbf{w}^T \sum_1 \mathbf{w}$ 尽可能的小，即最小化 $\mathbf{w}^T \sum_0 \mathbf{w}$ + $\mathbf{w}^T \sum_1 \mathbf{w}$。综上所述，优化目标为最大化 $J(\mathbf{w})$：
+由于是两类数据，因此只需要将数据投影到一条直线上即可。假设投影直线是向量 $\mathbf{w}$，则对任意一个样本 $\mathbf{x}_i$，它在直线 $\mathbf{w}$ 的投影为 $\mathbf{w}^T\mathbf{x}_i$，两个类别的中心点 $\mathbf{\mu}_0$ 和 $\mathbf{\mu}_1$ 在直线 $\mathbf{w}$ 的投影为 $\mathbf{w}^T\mathbf{\mu}_0$ 和 $\mathbf{w}^T\mathbf{\mu}_1$。由于 LDA 需要让不同类别数据的类别中心之间的距离尽可能的大，也就是要最大化 $||\mathbf{w}^T\mathbf{\mu}_0-\mathbf{w}^T\mathbf{\mu}_1||_2^2$；同时同一种类别数据的投影点尽可能的接近，也就是要同类样本投影点的协方差 $\mathbf{w}^T \sum_0 \mathbf{w}$ 和 $\mathbf{w}^T \sum_1 \mathbf{w}$ 尽可能的小，即最小化 $\mathbf{w}^T \sum_0 \mathbf{w}$ + $\mathbf{w}^T \sum_1 \mathbf{w}$。综上所述，优化目标为最大化 $J(\mathbf{w})$：
 
 ~ Equation
 J(\mathbf{w}) = \frac{||\mathbf{w}^T\mathbf{\mu}_0-\mathbf{w}^T\mathbf{\mu}_1||_2^2}{\mathbf{w}^T \sum_0 \mathbf{w} + \mathbf{w}^T \sum_1 \mathbf{w}} = \frac{\mathbf{w}^T(\mathbf{\mu}_0-\mathbf{\mu}_1)(\mathbf{\mu}_0-\mathbf{\mu}_1)^T\mathbf{w}}{\mathbf{w}^T(\sum_0 + \sum_1)\mathbf{w}}
@@ -335,7 +335,7 @@ J(\mathbf{w}) = \frac{\mathbf{w}^T \mathbf{S}_b \mathbf{w}}{\mathbf{w}^T \mathbf
 
 ### 多类 LDA
 
-类似地，对于多分类 LDA。假设我们的数据集 $D = {(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i\in {C_1,C_2, \cdots, C_k}$。我们定义 $N_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的个数，$\mathbf{X}_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的集合，而 $\mathbf{\mu}_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的均值向量，定义 $\sum_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的协方差矩阵（严格说是缺少分母部分的协方差矩阵）。
+类似地，对于多分类 LDA，假设我们的数据集 $D = {(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i\in \{C_1,C_2, \cdots, C_k\}$。我们定义 $N_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的个数，$\mathbf{X}_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的集合，而 $\mathbf{\mu}_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的均值向量，定义 $\sum_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的协方差矩阵（严格说是缺少分母部分的协方差矩阵）。
 
 由于多分类 LDA 是多类向低维投影，则此时投影到的低维空间不是一条直线，而是一个超平面。假设投影到的低维空间的维度为 $d$，对应的基向量为 $(\mathbf{w}_1,\mathbf{w}_2,\cdots,\mathbf{w}_d)$，基向量组成的矩阵为 $\mathbf{W}_{n \times d}$。此时优化目标变成为:
 
@@ -365,13 +365,13 @@ J(\mathbf{W}) = \frac{\prod_{diag} \mathbf{W}^T \mathbf{S}_b \mathbf{W}}{\prod_{
 J(\mathbf{W}) = \frac{\prod_{i=1}^d \mathbf{w}_i^T \mathbf{S}_b \mathbf{w}_i}{\prod_{i=1}^d \mathbf{w}_i^T \mathbf{S}_w \mathbf{w}_i} = \prod_{i=1}^d \frac{\mathbf{w}_i^T \mathbf{S}_b \mathbf{w}_i}{\mathbf{w}_i^T \mathbf{S}_w \mathbf{w}_i}
 ~
 
-观察上式，转化为广义瑞利商。$J(\mathbf{W})$ 最大值是矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大特征值,最大的 $d$ 个值的乘积就是矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大的 $d$ 个特征值的乘积,此时对应的矩阵 $\mathbf{W}$ 为这最大的 $d$ 个特征值对应的特征向量张成的矩阵。
+这样就转化为了广义瑞利商。$J(\mathbf{W})$ 最大值是矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大特征值，最大的 $d$ 个值的乘积就是矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大的 $d$ 个特征值的乘积，此时对应的矩阵 $\mathbf{W}$ 为这最大的 $d$ 个特征值对应的特征向量张成的矩阵。
 
-由于 $\mathbf{W}$ 是一个利用了样本的类别得到的投影矩阵，因此它的降维到的维度 $d$ 最大值为 $k-1$。因为 $\mathbf{S}_b$ 中每个 $\mathbf{\mu}_j - \mathbf{\mu}$ 的秩为 $1$，因此协方差矩阵相加后最大的秩为 $k$(矩阵的秩小于等于各个相加矩阵的秩的和)，但是如果知道前 $k-1$ 个 $\mathbf{\mu}_j$ 后，最后一个 $\mathbf{\mu}_k$ 可以由前 $k-1$ 个 $\mathbf{\mu}_j$ 线性表示，因此 $\mathbf{\mu}_jb$ 的秩最大为 $k-1$，即特征向量最多有 $k-1$ 个。
+由于 $\mathbf{W}$ 是一个利用了样本的类别得到的投影矩阵，因此它的降维到的维度 $d$ 最大值为 $k-1$。因为 $\mathbf{S}_b$ 中每个 $\mathbf{\mu}_j - \mathbf{\mu}$ 的秩为 $1$，因此协方差矩阵相加后最大的秩为 $k$（矩阵的秩小于等于各个相加矩阵的秩的和），但是如果知道前 $k-1$ 个 $\mathbf{\mu}_j$ 后，最后一个 $\mathbf{\mu}_k$ 可以由前 $k-1$ 个 $\mathbf{\mu}_j$ 线性表示，因此 $\mathbf{S}_jb$ 的秩最大为 $k-1$，即特征向量最多有 $k-1$ 个。
 
 现在对 LDA 降维的流程做一个总结。
 
-输入：数据集 $D={(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i \in \{C_1,C_2,...,C_k\}$，降维到的维度 $d$。
+输入：数据集 $D={(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i \in \{C_1,C_2,...,C_k\}$，降维到的维度 $d$
 
 输出：降维后的样本集 $D^\prime$
 
