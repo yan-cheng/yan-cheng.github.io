@@ -5,10 +5,11 @@
 #### CheatSheet
 
 MachineLearning
-- [MachineLearning](/docs/MachineLearning/MachineLearning.html)
+- [MachineLearning](/docs/MachineLearning/out/MachineLearning.html)
 
 ESL
-- [ESL](/docs/ESL/ESL.html)
+- [ESL](/docs/ESL/out/ESL.html)
+
 Tools Reference
 - [SQL CheetSheet](/docs/Graphviz使用教程.md)
 
