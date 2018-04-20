@@ -152,8 +152,14 @@ f(x) = \frac {1}{1+e^{-x}}
 
 为什么要选用 logistic 函数，难道就是因为它连续可微和阶跃函数很像就足够了吗? 下面这些函数也有类似的性质：
 
-![逼近阶跃函数的函数]
-[逼近阶跃函数的函数]: https://img-blog.csdn.net/20170811215640763?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTk3NDYzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast "逼近阶跃函数的函数" { width:auto; max-width:90% }
+LDA vs PCA
+
+~ Figure {#阶跃函数的近似函数; caption: "与阶跃函数近似的函数"; page-align:top}
+![阶跃函数的近似函数]
+~
+
+[阶跃函数的近似函数]: images/-.png "阶跃函数的近似函数" { width:auto; max-width:90% }
+
 
 这个其实是考虑到 logistic 函数的导函数，我们看一下它的导函数形式：
 
@@ -199,14 +205,14 @@ P(y_i=y|\mathbf{x}_i)=p_i^y(1-p_i)^{1-y}=\frac {e^{(\mathbf{w} x_i + b) \cdot y}
 
 ~ Equation
 \begin{split}
-l(\mathbf{\beta}) &= \sum_{i=1}^{N} log p(y_i|\mathbf{x}_i; \mathbf{\beta}) \\
+\ell(\mathbf{\beta}) &= \sum_{i=1}^{N} log p(y_i|\mathbf{x}_i; \mathbf{\beta}) \\
 &= \sum_{i=1}^{N} \left[y_i logp(y_i=1|\mathbf{x}_i) + (1-y_i)logp(y_i=0|\mathbf{x}_i) \right]  \\
 &= \sum_{i=1}^{N} \left[y_i log \frac {p(y_i=1|\mathbf{x}_i)}{p(y_i=0|\mathbf{x}_i)} + logp(y_i=0|\mathbf{x}_i)\right]  \\
 &= \sum_{i=1}^{N} \left[y_i \cdot \mathbf{\beta} \mathbf{x}_i^T - log\left(1+e^{\mathbf{\beta} \mathbf{x}_i^T}\right) \right]
 \end{split}
 ~
 
-然后对 $l(\mathbf{\beta})$ 求极大值。此式是关于 $\mathbf{\beta}$ 的高阶可导连续凸函数，根据凸优化理论，经典的数值优化算法，如梯度下降法、牛顿法等都可以求得其最优解，于是，可以得到：
+然后对 $\ell(\mathbf{\beta})$ 求极大值。此式是关于 $\mathbf{\beta}$ 的高阶可导连续凸函数，根据凸优化理论，经典的数值优化算法，如梯度下降法、牛顿法等都可以求得其最优解，于是，可以得到：
 
 ~ Equation
 \hat {\mathbf{\beta}} = \underset {\mathbf{\beta}}{ arg min(l(\mathbf{\beta})) }
@@ -237,11 +243,12 @@ LDA 的思想可以用一句话概括，就是“投影后类内方差最小，�
 
 假设有两类数据分别为红色和蓝色，如下图所示，这些数据特征是二维的，我们希望将这些数据投影到一维的一条直线，让每一种类别数据的投影点尽可能的接近，而红色和蓝色数据中心之间的距离尽可能的大。
 
+~ Figure { #LDA 投影; caption:"LDA在不同方向的投影"; page-align:top}
 ![LDA]
+~
+[LDA]: images/LDA.png "LDA" { width:auto; max-width:80% }
 
 从直观上可以看出，右图要比左图的投影效果好，因为右图的黑色数据和蓝色数据各个较为集中，且类别之间的距离明显。左图则在边界处数据混杂。以上就是LDA的主要思想了，当然在实际应用中，我们的数据是多个类别的，我们的原始数据一般也是超过二维的，投影后的也一般不是直线，而是一个低维的超平面。
-
-[LDA]: images/LDA.png "LDA" { width:auto; max-width:90% }
 
 ### 瑞利商（Rayleigh quotient）与广义瑞利商（genralized Rayleigh quotient）
 
@@ -286,6 +293,122 @@ R(\mathbf{A},\mathbf{B},\mathbf{x}^\prime) = \frac{\mathbf{x}^{\prime H} \mathbf
 ~
 
 利用前面的瑞利商的性质，我们可以很快的知道，$R(\mathbf{A},\mathbf{B},\mathbf{x})$ 的最大值为矩阵 $\mathbf{B}^{-1/2} \mathbf{A} \mathbf{B}^{-1/2}$ 的最大特征值，或者说矩阵 $\mathbf{B}^{-1}\mathbf{A}$ 的最大特征值，而最小值为矩阵 $\mathbf{B}^{-1}\mathbf{A}$ 的最小特征值。
+
+### 二分类 LDA
+
+回到 LDA 的问题上。假设我们的数据集 $D = {(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i\in {0,1}$。我们定义 $N_j(j=0,1)$ 为第 $j$ 类样本的个数，$\mathbf{X}_j(j=0,1)$ 为第 $j$ 类样本的集合，而 $\mathbf{\mu}_j(j=0,1)$ 为第 $j$ 类样本的均值向量，定义 $\sum_j(j=0,1)$ 为第 $j$ 类样本的协方差矩阵（严格说是缺少分母部分的协方差矩阵）。
+
+$\mathbf{\mu}_j$ 的表达式为：
+~ Equation
+\mathbf{\mu}_j=\frac{1}{N}_j∑_{\mathbf{x} \in \mathbf{X}_j} \mathbf{x} (j=0,1)
+~
+$\sum_j$ 的表达式为：
+~ Equation
+\sum_j = \sum_{\mathbf{x} \in \mathbf{X}_j}(\mathbf{x}-\mathbf{\mu}_j)(\mathbf{x}-\mathbf{\mu}_j)^T (j=0,1)
+~
+
+由于是两类数据，因此只需要将数据投影到一条直线上即可。假设投影直线是向量 $\mathbf{w}$，则对任意一个样本本 $\mathbf{x}_i$，它在直线 $\mathbf{w}$ 的投影为 $\mathbf{w}^T\mathbf{x}_i$，对于两个类别的中心点 $\mathbf{\mu}_0$、$\mathbf{\mu}_1$ 在直线 $\mathbf{w}$ 的投影为 $\mathbf{w}^T\mathbf{\mu}_0$ 和 $\mathbf{w}^T\mathbf{\mu}_1$。由于 LDA 需要让不同类别的数据的类别中心之间的距离尽可能的大，也就是要最大化 $||\mathbf{w}^T\mathbf{\mu}_0-\mathbf{w}^T\mathbf{\mu}_1||_2^2$；同时同一种类别数据的投影点尽可能的接近，也就是要同类样本投影点的协方差 $\mathbf{w}^T \sum_0 \mathbf{w}$ 和 $\mathbf{w}^T \sum_1 \mathbf{w}$ 尽可能的小，即最小化 $\mathbf{w}^T \sum_0 \mathbf{w}$ + $\mathbf{w}^T \sum_1 \mathbf{w}$。综上所述，优化目标为最大化 $J(\mathbf{w})$：
+
+~ Equation
+J(\mathbf{w}) = \frac{||\mathbf{w}^T\mathbf{\mu}_0-\mathbf{w}^T\mathbf{\mu}_1||_2^2}{\mathbf{w}^T \sum_0 \mathbf{w} + \mathbf{w}^T \sum_1 \mathbf{w}} = \frac{\mathbf{w}^T(\mathbf{\mu}_0-\mathbf{\mu}_1)(\mathbf{\mu}_0-\mathbf{\mu}_1)^T\mathbf{w}}{\mathbf{w}^T(\sum_0 + \sum_1)\mathbf{w}}
+~
+
+一般定义“类内散度矩阵” $\mathbf{S}_w$ 为：
+
+~ Equation
+\mathbf{S}_w = \sum_0 + \sum_1 = \sum_{\mathbf{x} \in \mathbf{X}_0}(\mathbf{x}-\mathbf{\mu}_0)(\mathbf{x}-\mathbf{\mu}_0)^T + \sum_{\mathbf{x} \in \mathbf{X}_1}(\mathbf{x}-\mathbf{\mu}_1)(\mathbf{x}-\mathbf{\mu}_1)^T
+~
+
+同时定义“类间散度矩阵” $\mathbf{S}_b$ 为：
+
+~ Equation
+\mathbf{S}_b = (\mathbf{\mu}_0-\mathbf{\mu}_1)(\mathbf{\mu}_0-\mathbf{\mu}_1)^T
+~
+
+这样优化目标重写为：
+
+~ Equation
+J(\mathbf{w}) = \frac{\mathbf{w}^T \mathbf{S}_b \mathbf{w}}{\mathbf{w}^T \mathbf{S}_w \mathbf{w}}
+~
+
+这就是求解广义瑞利商极值。利用广义瑞利商的性质，知道 $J(\mathbf{w})$ 最大值为矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大特征值，而对应的 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大特征值对应的特征向量。
+
+注意到对于二分类的时候，$\mathbf{S}_b\mathbf{w}$ 的方向恒为 $\mathbf{\mu}_0 - \mathbf{\mu}_1$，不妨令 $\mathbf{S}_b \mathbf{w} = \lambda (\mathbf{\mu}_0 - \mathbf{\mu}_1)$，将其带入：$(\mathbf{S}_w^{-1}\mathbf{S}_b) \mathbf{w} = \lambda \mathbf{w}$，可以得到 $\mathbf{w} = \mathbf{S}_w^{-1}(\mathbf{\mu}_0 - \mathbf{\mu}_1)$， 也就是说我们只要求出原始二类样本的均值和方差就可以确定最佳的投影方向 $\mathbf{w}$ 了。 
+
+### 多类 LDA
+
+类似地，对于多分类 LDA。假设我们的数据集 $D = {(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i\in {C_1,C_2, \cdots, C_k}$。我们定义 $N_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的个数，$\mathbf{X}_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的集合，而 $\mathbf{\mu}_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的均值向量，定义 $\sum_j(j=1,2,\cdots,k)$ 为第 $j$ 类样本的协方差矩阵（严格说是缺少分母部分的协方差矩阵）。
+
+由于多分类 LDA 是多类向低维投影，则此时投影到的低维空间不是一条直线，而是一个超平面。假设投影到的低维空间的维度为 $d$，对应的基向量为 $(\mathbf{w}_1,\mathbf{w}_2,\cdots,\mathbf{w}_d)$，基向量组成的矩阵为 $\mathbf{W}_{n \times d}$。此时优化目标变成为:
+
+~ Equation
+J(\mathbf{W}) = \frac{\mathbf{W}^T \mathbf{S}_b \mathbf{W}}{\mathbf{W}^T \mathbf{S}_w \mathbf{W}}
+~
+
+其中
+~ Equation
+\mathbf{S}_w = \sum_{j=1}^k \mathbf{S}_{wj} = \sum_{j=1}^k \sum_{\mathbf{x} \in \mathbf{X}_j}(\mathbf{x}-\mathbf{\mu}_j)(\mathbf{x}-\mathbf{\mu}_j)^T
+~
+~ Equation
+\mathbf{S}_b = \sum_{j=1}^k N_j(\mathbf{\mu}_j - \mathbf{\mu})(\mathbf{\mu}_j - \mathbf{\mu})^T
+~
+
+$\mathbf{\mu}$ 为所有样本均值向量。
+
+但是 $\mathbf{W}^T \mathbf{S}_b \mathbf{W}$ 和 $\mathbf{W}^T \mathbf{S}_w \mathbf{W}$ 都是矩阵，不是标量，无法作为一个标量函数来优化，我们无法直接用二类 LDA 的优化方法。一般来说，我们可以用其他的一些替代优化目标来实现。常见的一个 LDA 多类替代优化目标函数定义为：
+
+~ Equation
+J(\mathbf{W}) = \frac{\prod_{diag} \mathbf{W}^T \mathbf{S}_b \mathbf{W}}{\prod_{diag} \mathbf{W}^T \mathbf{S}_w \mathbf{W}}
+~
+
+其中 $\prod_{diag} \mathbf{A}$ 为 $\mathbf{A}$ 的主对角线元素的乘积，这时 $J(\mathbf{W})$ 的优化过程可以转化为：
+
+~ Equation
+J(\mathbf{W}) = \frac{\prod_{i=1}^d \mathbf{w}_i^T \mathbf{S}_b \mathbf{w}_i}{\prod_{i=1}^d \mathbf{w}_i^T \mathbf{S}_w \mathbf{w}_i} = \prod_{i=1}^d \frac{\mathbf{w}_i^T \mathbf{S}_b \mathbf{w}_i}{\mathbf{w}_i^T \mathbf{S}_w \mathbf{w}_i}
+~
+
+观察上式，转化为广义瑞利商。$J(\mathbf{W})$ 最大值是矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大特征值,最大的 $d$ 个值的乘积就是矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大的 $d$ 个特征值的乘积,此时对应的矩阵 $\mathbf{W}$ 为这最大的 $d$ 个特征值对应的特征向量张成的矩阵。
+
+由于 $\mathbf{W}$ 是一个利用了样本的类别得到的投影矩阵，因此它的降维到的维度 $d$ 最大值为 $k-1$。因为 $\mathbf{S}_b$ 中每个 $\mathbf{\mu}_j - \mathbf{\mu}$ 的秩为 $1$，因此协方差矩阵相加后最大的秩为 $k$(矩阵的秩小于等于各个相加矩阵的秩的和)，但是如果知道前 $k-1$ 个 $\mathbf{\mu}_j$ 后，最后一个 $\mathbf{\mu}_k$ 可以由前 $k-1$ 个 $\mathbf{\mu}_j$ 线性表示，因此 $\mathbf{\mu}_jb$ 的秩最大为 $k-1$，即特征向量最多有 $k-1$ 个。
+
+现在对 LDA 降维的流程做一个总结。
+
+输入：数据集 $D={(\mathbf{x}_1,y_1),(\mathbf{x}_2,y_2),...,((\mathbf{x}_m,y_m))}$，其中任意样本 $\mathbf{x}_i$ 为 $n$ 维向量，$y_i \in \{C_1,C_2,...,C_k\}$，降维到的维度 $d$。
+
+输出：降维后的样本集 $D^\prime$
+
+1) 计算类内散度矩阵 $\mathbf{S}_w$
+2) 计算类间散度矩阵 $\mathbf{S}_b$
+3) 计算矩阵 $\mathbf{S}_w^{-1} \mathbf{S}_b$
+4) 计算 $\mathbf{S}_w^{-1} \mathbf{S}_b$ 的最大的 $d$ 个特征值和对应的 $d$ 个特征向量 $(\mathbf{w}_1,\mathbf{w}_2,\cdots,\mathbf{w}_d)$，得到投影矩阵 $\mathbf{W}$
+5) 对样本集中的每一个样本特征 $\mathbf{x}_i$，转化为新的样本 $\mathbf{z}_i = \mathbf{W}^T \mathbf{x}_i$
+6) 得到输出样本集 $D^\prime = {(\mathbf{z}_1,y_1),(\mathbf{z}_2,y_2),...,((\mathbf{z}_m,y_m))}$
+
+LDA 除了可以用于降维以外，还可以用于分类。一个常见的 LDA 分类基本思想是假设各个类别的样本数据符合高斯分布，这样利用 LDA 进行投影后，可以利用极大似然估计计算各个类别投影数据的均值和方差，进而得到该类别高斯分布的概率密度函数。当一个新的样本到来后，我们可以将它投影，然后将投影后的样本特征分别带入各个类别的高斯分布概率密度函数，计算它属于这个类别的概率，最大的概率对应的类别即为预测类别。
+
+### LDA 与 PCA 对比
+
+LDA 用于降维，和 PCA 有很多相同，也有很多不同的地方，这里比较一下两者的降维异同点。
+
+相同点：
+
+1. 两者均可以对数据进行降维。\
+2. 两者在降维时均使用了矩阵特征分解的思想。\
+3. 两者都假设数据符合高斯分布。\
+
+不同点：
+
+1. LDA 是有监督的降维方法，可以使用类别的先验知识经验，而 PCA 是无监督的降维方法，无法使用类别先验知识。\
+2. LDA 降维最多降到类别数 $k-1$ 的维数，而 PCA 没有这个限制。目前有一些 LDA 的进化版算法可以绕过这个问题。\
+3. LDA 选择样本点投影具有最大均值的方向，而 PCA 选择样本点投影具有最大方差的方向。换句话说，LDA 在样本分类信息依赖均值而不是方差的时候，比 PCA 较优；反之则亦然。即降维效果依赖于数据的均值和方差情况。\
+4. LDA 除了可以用于降维，还可以用于分类。
+
+下图是数据分别在 LDA（$d_2$） 与 PCA（$d_1$）下降维示意图：
+
+~ Figure { #LDA vs PCA; caption:"LDA 对比 PCA"; page-align:top}
+![LDA vs PCA]
+~
+[LDA vs PCA]: images/LDA-vs-PCA.png "LDA vs PCA" { width:auto; max-width:70% }
 
 ## 多分类问题和不平衡问题
 
