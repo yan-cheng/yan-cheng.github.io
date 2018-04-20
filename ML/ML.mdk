@@ -350,6 +350,9 @@ J(\mathbf{W}) = \frac{\mathbf{W}^T \mathbf{S}_b \mathbf{W}}{\mathbf{W}^T \mathbf
 ~ Equation
 \mathbf{S}_b = \sum_{j=1}^k N_j(\mathbf{\mu}_j - \mathbf{\mu})(\mathbf{\mu}_j - \mathbf{\mu})^T
 ~
+~ Equation
+\mathbf{\mu} = \frac{1}{m} \sum_{i=1}^m \mathbf{x}_i
+~
 
 $\mathbf{\mu}$ 为所有样本均值向量。
 
