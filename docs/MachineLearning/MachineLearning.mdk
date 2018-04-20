@@ -11,6 +11,33 @@ equation {
 
 Doc class : [onecolumn, a4paper, 12pt]article
 
+Latex : xelatex
+
+Package: [curve]xypic
+Package: amscd
+Package: amsfonts
+Package: amsmath
+Package: fontspec
+Package: xeCJK
+Package: geometry
+Package: pgfplots
+Package: pgfplotstable
+Package: pst-plot
+Package: pstricks
+Package: tikz
+
+Tex Header:
+  \setmainfont{Times New Roman}
+  \setsansfont{Arial}
+  \setmonofont{Courier New}
+  \setCJKmainfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \setCJKsansfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \setCJKmonofont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+  \geometry{top=1.2in,bottom=1.2in,left=1.2in,right=1in}
+  \usetikzlibrary{decorations.pathreplacing%
+  ,decorations.pathmorphing}
+
 [INCLUDE=book]
 [INCLUDE=webtoc]
 [INCLUDE=webanchors]
@@ -69,7 +96,7 @@ SL(w) &= \sum_{i=1}^{N}(y_i - f(x_i))^2 \\
 \end{split}
 ~
 
-现求解 $w$ 使得 $SL(w)最小化，这个过程称为线性回归模型的最小二乘参数估计。将 $SL(w)$ 对 $w$ 和 $b$ 分别求导得
+现求解 $w$ 使得 $SL(w)$ 最小化。将 $SL(w)$ 对 $w$ 和 $b$ 分别求导得
 
 ~ Math
 \frac{\partial SL(w)}{\partial w} = 2 \left(w\sum_{i=1}^mx_i^2 - \sum_{i=1}^m(y_i-b)x_i\right)
@@ -115,9 +142,9 @@ RSS(\mathbf{w}) &= \sum_{i=1}^{N}(y_i - f(\mathbf{x}_i))^2 \\
 ~
 因而，
 ~ Equation
-\hat{\mathbf{y}} = X\hat{w} = \mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}
+\hat{\mathbf{y}} = X\hat{\mathbf{w}} = \mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}
 ~
-$\hat{\mathbf{y}}$ 是 $\mathbf{y}$ 在 $\mathbf{X}$ 的列空间上的正交映射。这个正交性用公式 (1.6) 表示。矩阵 $\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T$ 计算正交映射，因此它也被称为映射矩阵（projection matrix）。
+$\hat{\mathbf{y}}$ 是 $\mathbf{y}$ 在 $\mathbf{X}$ 的列空间上的正交映射。这个正交性用公式 (1.7) 表示。矩阵 $\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T$ 计算正交映射，因此它也被称为映射矩阵（projection matrix）。
 2. 如果 $\mathbf{X}$ 不是满秩矩阵时，存在多个解析解，它们都能使得损失函数最小化，选择哪一个解析解作为输出，由学习算法的归纳偏好决定。这时候常常引入正则化（regularization）项。常见的正则化项如 $L_1$ 正则化或 $L_2$ 正则化。
   1. $L_1$ 正则化：
 ~ Equation
