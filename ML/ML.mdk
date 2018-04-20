@@ -405,7 +405,8 @@ LDA 用于降维，和 PCA 有很多相同，也有很多不同的地方，这�
 
 ~ Figure { #LDA 对比 PCA; caption:"LDA 对比 PCA"; page-align:top}
 ![LDA_vs_PCA]
-~
+~ 
+
 [LDA_vs_PCA]: images/LDA_vs_PCA.png { width:auto; max-width:70% }
 
 ## 多分类问题和不平衡问题
