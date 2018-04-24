@@ -1,4 +1,7 @@
-Title         : 正则表达式
+Title : 正则表达式
+
+Bib style : plainnat
+Bibliography : example
 
 equation {
   toc: equations;
@@ -8,7 +11,6 @@ equation {
 Doc class : [onecolumn, a4paper, 12pt]article
 
 pre,code {
-
   color: red;
 }
 
@@ -50,7 +52,10 @@ Tex Header:
 
 ~ End SidePanel
 
+
 ~ Begin MainPanel
+
+
 
 # 正则表达式简介
 
