@@ -11,10 +11,13 @@ MachineLearning
 ESL
 - [ESL](/docs/ESL/out/ESL.html)
 
-Tools Reference
-- [SQL CheetSheet](/docs/Graphviz使用教程.md)
+Guide
+- [Graphviz使用教程](/docs/Guide/Graphviz使用教程.md)
 
-CheetSheet
-- [Hbase CheetSheet](/docs/MadokoDocs/CheatSheet/Hbase_CheatSheet.pdf)
-- [Redis CheatSheet](/docs/MadokoDocs/CheatSheet/Redis_CheatSheet.html)
-- [SQL CheetSheet](/docs/MadokoDocs/CheatSheet/SQL_CheatSheet.html)
+Reference
+
+- [Regex CheatSheet](/docs/Reference/Regex_CheatSheet.html)
+- [Hbase CheetSheet](/docs/Reference/Hbase_CheatSheet.pdf)
+- [Redis CheatSheet](/docs/Reference/Redis_CheatSheet.html)
+- [SQL CheetSheet](/docs/Reference/SQL_CheatSheet.html)
+
