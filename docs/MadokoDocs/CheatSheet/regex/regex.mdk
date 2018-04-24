@@ -8,6 +8,7 @@ equation {
 Doc class : [onecolumn, a4paper, 12pt]article
 
 pre,code {
+
   color: red;
 }
 
@@ -33,7 +34,7 @@ Tex Header:
   \setCJKmonofont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
   \XeTeXlinebreaklocale "zh"
   \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
-  \geometry{top=1.2in,bottom=1.2in,left=1.2in,right=1in}
+  \geometry{top=1.2in,bottom=1.2in,left=1.2in,right=1.2in}
   \usetikzlibrary{decorations.pathreplacing%
   ,decorations.pathmorphing}
 
