@@ -459,20 +459,91 @@ LDA 用于降维，和 PCA 有很多相同，也有很多不同的地方，这�
 
 ### 函数间隔和几何间隔
 
-对于给定的训练数据集 $T$ 和超平面 $(\mathbf{w},b)$，定义超平面 $(\mathbf{w},b)$ 关于样本点 $(\mathbf{x}_i,y_i)$ 的函数间隔为：
+对于给定的训练数据集 $T$ 和超平面 $(\mathbf{w},b)$：
+
+- 定义超平面 $(\mathbf{w},b)$ 关于样本点 $(\mathbf{x}_i,y_i)$ 的**函数间隔**（functional margin）为：
 
 ~ Equation
 \hat{r}_i = y_i(\mathbf{w} \cdot \mathbf{x}_i + b)
 ~
 
-定义超平面 $(\mathbf{w},b)$ 关于训练数据集 $T$ 的函数间隔为超平面 $(\mathbf{w},b)$ 关于 $T$ 中所有样本点 $(\mathbf{x}_i,y_i)$ 的函数间隔最小值，即：
+- 定义超平面 $(\mathbf{w},b)$ 关于训练数据集 $T$ 的函数间隔为超平面 $(\mathbf{w},b)$ 关于 $T$ 中所有样本点 $(\mathbf{x}_i,y_i)$ 的函数间隔最小值，即：
 
 ~ Equation
 \hat{r} = min \quad \hat{r}_i
 ~
 
-函数间隔表示分类预测的正确性（$\hat{r}$ 的符号表示分类正确性）和确信度（$\hat{r}$ 的量表示确信度）。但是，如果成比例改变 $\mathbf{w}$ 和 $b$，例如将它们改成 $2\mathbf{w}$ 和 $2b$，超平面并未改变，但函数间隔却变成2倍。
+- 定义超平面 $(\mathbf{w},b)$ 关于样本点 $(\mathbf{x}_i,y_i)$ 的**几何间隔**（geometric margin）为：
+
+~ Equation
+r_i = y_i \left( \frac{\mathbf{w}}{||\mathbf{w}||} \cdot \mathbf{x}_i + \frac{b}{||\mathbf{w}||}\right)
+~
+
+- 定义超平面 $(\mathbf{w},b)$ 关于训练数据集 $T$ 的几何间隔为超平面 $(\mathbf{w},b)$ 关于 $T$ 中所有样本点 $(\mathbf{x}_i,y_i)$ 的几何间隔之最小值：
+
+~ Equation
+r_i = min \quad r_i
+~
 
 
+函数间隔表示分类预测的正确性（$\hat{r}$ 的符号表示分类正确性）和确信度（$\hat{r}$ 的量表示确信度）。但是，如果成比例改变 $\mathbf{w}$ 和 $b$，例如将它们改成 $2\mathbf{w}$ 和 $2b$，超平面并未改变，但函数间隔却变成2倍。几何间隔是对法向量 w 加上约束条件后的，不随超平面参数 $\mathbf{w}$ 和 $b$ 成比例改变而改变。超平面 $(\mathbf{w},b)$ 关于样本点的几何间隔一般是实例点到超平面的带符号的距离（signed distance），当样本点被超平面正确分类时就是实例点到超平面的距离。
+
+函数间隔和几何间隔有下面的关系：
+
+~ Equation
+\begin{split}
+r_i = \frac{\hat{r}_i}{||\mathbf{w}||} \\
+r = \frac{\hat{r}}{||\mathbf{w}||}
+\end{split}
+~
+
+### 间隔最大化
+
+对于线性可分的训练数据集，几何间隔最大的分离超平面是唯一的，这里的间隔最大化又称硬间隔最大化，与训练数据集近似线性可分时的软间隔最大化相对应。求得一个几何间隔最大的分离超平面可以表示为下面的约束最优化问题：
+
+~ Equation
+\begin{split}
+& \underset{\mathbf{w},b}{max} \quad r \\
+& s.t. \quad y_i \left(\frac{\mathbf{w}}{||\mathbf{w}||} \cdot \mathbf{x}_i + \frac{b}{||\mathbf{w}||} \right) \ge r, \quad i=1,2,\cdots,N
+\end{split}
+~
+
+考虑到几何间隔和函数间隔的关系，这个约束问题可以改写成：
+
+~ Equation
+\begin{split}
+& \underset{\mathbf{w},b}{max} \quad \frac{\hat{r}}{||\mathbf{w}||} \\
+& s.t. \quad y_i \left(\mathbf{w} \cdot \mathbf{x}_i + b \right) \ge \hat{r}, \quad i=1,2,\cdots,N
+\end{split}
+~
+
+函数间隔 $\hat{r}$ 的取值并不影响最优化问题的解。事实上，假设将 $\mathbf{w}$ 和 $b$ 按比例改变为 $\lambda \mathbf{w}$ 和 $\lambda b$，按函数间隔定义，函数间隔 $\hat{r}$ 成为 $\lambda \hat{r}$。函数间隔这一改变并不影响上面最优化问题的不等式约束和目标函数。这样，就可以取 $\hat{r}=1$。注意到最大化 $\frac{1}{||\mathbf{w}||}$ 和最小化 $\frac{1}{2} ||\mathbf{w}||^2$ 是等价的，于是最终转化为下面的最优化问题：
+
+~ Equation
+\begin{split}
+& \underset{\mathbf{w},b}{max} \quad \frac{1}{2} ||\mathbf{w}||^2 \\
+& s.t. \quad y_i \left(\mathbf{w} \cdot \mathbf{x}_i + b \right) - 1 \ge 0, \quad i=1,2,\cdots,N
+\end{split}
+~
+
+### 学习的对偶算法
+
+间隔最大化的优化问题是一个凸二次规划（convex quadratic programming）问题。
+
+凸优化问题是指约束最优化问题
+
+~ Equation
+\begin{split}
+& \underset{min}{\mathbf{w}} \quad f(w) \\
+& s.t. \quad & g_i(\mathbf{w}) \le 0, \quad i=1,2,\cdots,k \\
+& h_i(\mathbf{w}) \le 0, \quad i=1,2,\cdots,l
+\end{split}
+~
+
+其中，目标函数 $f(\mathbf{w})$ 和约束函数 $g_i(\mathbf{w})$ 都是 $\mathbf{R}^n$ 上的连续可微的凸函数，约束函数 $h_i(\mathbf{w})$ 是 $\mathbf{R}^n$ 上的仿射函数。
+
+$f(\mathbf{x})$ 称为仿射函数（affine function），如果它满足 $f(\mathbf{x}) = \mathbf{A_{m\times k}} \cdot \mathbf{x_{1 \times k}} + \mathbf{b_{1 \times m}}$，仿射函数反映了一种从 $k$ 维到 $m$ 维的空间映射关系。
+
+当目标函数 $f(\mathbf{w})$ 是二次函数且约束函数是仿射函数时，上述凸最优化问题成为凸二次规划问题。
 
 ~ End MainPanel
