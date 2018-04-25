@@ -534,9 +534,9 @@ r = \frac{\hat{r}}{||\mathbf{w}||}
 
 ~ Equation
 \begin{split}
-& \underset{min}{\mathbf{w}} \quad f(w) \\
-& s.t. \quad & g_i(\mathbf{w}) \le 0, \quad i=1,2,\cdots,k \\
-& h_i(\mathbf{w}) \le 0, \quad i=1,2,\cdots,l
+\underset{min}{\mathbf{w}} &\quad f(w) \\
+s.t. &\quad g_i(\mathbf{w}) \le 0, \quad i=1,2,\cdots,k \\
+&\quad h_i(\mathbf{w}) \le 0, \quad i=1,2,\cdots,l \\
 \end{split}
 ~
 
