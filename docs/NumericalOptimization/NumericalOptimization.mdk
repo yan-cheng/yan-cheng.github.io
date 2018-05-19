@@ -1,0 +1,62 @@
+Title : 数值优化
+
+Toc depth : 5
+Heading depth : 5
+
+equation {
+  toc: equations;
+  label:"(@h1.@equation)";
+  toc-line: "&label;&ensp;";
+}
+
+Doc class : [onecolumn, a4paper, 12pt]article
+
+Latex : xelatex
+
+Package: [curve]xypic
+Package: amscd
+Package: amsfonts
+Package: amsmath
+Package: fontspec
+Package: xeCJK
+Package: geometry
+Package: pgfplots
+Package: pgfplotstable
+Package: pst-plot
+Package: pstricks
+Package: tikz
+
+Tex Header:
+  \setmainfont{Times New Roman}
+  \setsansfont{Arial}
+  \setmonofont{Courier New}
+  \setCJKmainfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \setCJKsansfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \setCJKmonofont[BoldFont={SimHei},ItalicFont={SimHei}]{SimSun}
+  \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+  \geometry{top=1.2in,bottom=1.2in,left=1.2in,right=1in}
+  \usetikzlibrary{decorations.pathreplacing%
+  ,decorations.pathmorphing}
+
+[INCLUDE=book]
+[INCLUDE=webtoc]
+[INCLUDE=webanchors]
+
+[TITLE]
+
+
+~ Begin SidePanel
+[TOC]
+~ End SidePanel
+
+
+~ Begin MainPanel
+
+# Chapter 1 Introduction
+
+## Mathematical Formulation
+
+# Chapter 2 Line Search Methods
+
+
+~ End MainPanel
