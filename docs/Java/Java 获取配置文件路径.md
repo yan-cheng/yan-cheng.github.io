@@ -56,5 +56,5 @@ InputStream config2 = this.getClass().getResourceAsStream("/config4.properties")
 ```
 注意区别 `Class.getResourceAsStream(String path)` 与 `Class.getClassLoader().getResourceAsStream(String path)` 的区别。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5OTU4ODkyMF19
+eyJoaXN0b3J5IjpbLTUyMTYxNjYsMTE5OTU4ODkyMF19
 -->
