@@ -1,12 +1,16 @@
 ---
 title: 《风格的要素读书笔记》
-description: 以前考研，在准备英语作文时，看到了这本论述英语写作的短小精悍的书籍，读之，此为笔记。
+description:
 categories:
  - Notes
  - Reference
 tags:
  - Reading
 ---
+
+![Cover](https://raw.githubusercontent.com/yan-cheng/yan-cheng.github.io/master/images/the-Elements-of-Style-Notes_cover.jpg)
+
+以前考研，在准备英语作文时，看到了这本论述英语写作的短小精悍的书籍，读之，此为笔记。
 
 1. 单个连词连接起来的三个或三个以上的短语，除了最后一个短语，在其他每个短语的后面使用逗号：
     
