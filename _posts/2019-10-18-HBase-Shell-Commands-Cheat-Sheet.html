@@ -1,0 +1,1896 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:等线;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@等线";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:等线;}
+h1
+	{mso-style-link:"标题 1 字符";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:24.0pt;
+	font-family:宋体;
+	font-weight:bold;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:等线;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:等线;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:21.0pt;
+	font-size:10.5pt;
+	font-family:等线;}
+span.1
+	{mso-style-name:"标题 1 字符";
+	mso-style-link:"标题 1";
+	font-family:宋体;
+	font-weight:bold;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:宋体;}
+span.a
+	{mso-style-name:"页眉 字符";
+	mso-style-link:页眉;
+	font-family:等线;}
+span.a0
+	{mso-style-name:"页脚 字符";
+	mso-style-link:页脚;
+	font-family:等线;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:等线;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN link="#0563C1" vlink="#954F72" style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US><a
+href="https://learnhbase.net/2013/03/02/hbase-shell-commands/"><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>There is this
+article’s original site.</span></a></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-family:"Times New Roman",serif'>As told in HBase introduction,
+HBase provides Extensible jruby-based (JIRB) shell as a feature to execute some
+commands</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-family:"Times New Roman",serif'>(each command represents one
+functionality).</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-family:"Times New Roman",serif'>HBase shell commands are mainly
+categorized into 6 parts</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:18.0pt;text-align:left;
+text-indent:-18.0pt'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman",serif'>General&nbsp;HBase
+shell commands</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=699
+ style='width:524.4pt;background:white;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=132 style='width:99.2pt;border:solid windowtext 1.0pt;border-left:
+  none;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>status</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Show cluster status.
+  Can be ‘summary’, ‘simple’, or ‘detailed’. The default is ‘summary’.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; status</span></b><span
+  lang=EN-US style='font-family:"Times New Roman",serif;color:black'><br>
+  <b>hbase&gt; status ‘simple’</b><br>
+  <b>hbase&gt; status ‘summary’</b></span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; status
+  ‘detailed’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>version</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Output this HBase
+  version Usage:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; version</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>whoami</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Show the current
+  hbase user Usage:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; whoami</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:18.0pt;text-align:left;
+text-indent:-18.0pt'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman",serif'>Tables
+Management commands</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=699
+ style='width:524.4pt;background:white;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=132 style='width:99.2pt;border:solid windowtext 1.0pt;border-left:
+  none;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>alter</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Alter column family
+  schema; pass table name and a dictionary specifying new column family schema.
+  Dictionaries are described on the main help command output. Dictionary must
+  include name of column family to alter. For example, to change or add the
+  ‘f1’ column family in table ‘t1’ from current value to keep a maximum of 5
+  cell VERSIONS, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  NAME =&gt; ‘f1’, VERSIONS =&gt; 5</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>You can operate on
+  several column families:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  ‘f1’, {NAME =&gt; ‘f2’, IN_MEMORY =&gt; true}, {NAME =&gt; ‘f3’, VERSIONS
+  =&gt; 5}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>To delete the ‘f1’
+  column family in table ‘t1’, use one of:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  NAME =&gt; ‘f1’, METHOD =&gt; ‘delete’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  ‘delete’ =&gt; ‘f1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>You can also change
+  table-scope attributes like MAX_FILESIZE, READONLY, MEMSTORE_FLUSHSIZE,
+  DEFERRED_LOG_FLUSH, etc. These can be put at the end; for example, to change
+  the max size of a region to 128MB, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  MAX_FILESIZE =&gt; ‘134217728’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>You can add a table
+  coprocessor by setting a table coprocessor attribute:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  ‘coprocessor’=&gt;’hdfs:///foo.jar|com.foo.FooRegionObserver|1001|arg1=1,arg2=2’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Since you can have
+  multiple coprocessors configured for a table, a sequence number will be
+  automatically appended to the attribute name to uniquely identify it. The
+  coprocessor attribute must match the pattern below in order for the framework
+  to understand how to load the coprocessor classes:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>[coprocessor jar file
+  location] | class name | [priority] | [arguments]</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>You can also set
+  configuration settings specific to this table or column family:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  CONFIGURATION =&gt; {‘hbase.hregion.scan.loadColumnFamiliesOnDemand’ =&gt;
+  ‘true’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  {NAME =&gt; ‘f2’, CONFIGURATION =&gt; {‘hbase.hstore.blockingStoreFiles’
+  =&gt; ’10’}}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>You can also remove a
+  table-scope attribute:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  METHOD =&gt; ‘table_att_unset’, NAME =&gt; ‘MAX_FILESIZE’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  METHOD =&gt; ‘table_att_unset’, NAME =&gt; ‘coprocessor$1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>There could be more
+  than one alteration in one command:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  { NAME =&gt; ‘f1’, VERSIONS =&gt; 3 }, { MAX_FILESIZE =&gt; ‘134217728’ }, {
+  METHOD =&gt; ‘delete’, NAME =&gt; ‘f2’ }, OWNER =&gt; ‘johndoe’, METADATA
+  =&gt; { ‘mykey’ =&gt; ‘myvalue’ }</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>create</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Create table; pass
+  table name, a dictionary of specifications per column family, and optionally
+  a dictionary of table configuration.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; create
+  ‘t1’, {NAME =&gt; ‘f1’, VERSIONS =&gt; 5}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; create
+  ‘t1’, {NAME =&gt; ‘f1’}, {NAME =&gt; ‘f2’}, {NAME =&gt; ‘f3’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; # The above
+  in shorthand would be the following:</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; create
+  ‘t1’, ‘f1’, ‘f2’, ‘f3’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; create
+  ‘t1’, {NAME =&gt; ‘f1’, VERSIONS =&gt; 1, TTL =&gt; 2592000, BLOCKCACHE =&gt;
+  true}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; create
+  ‘t1’, {NAME =&gt; ‘f1’, CONFIGURATION =&gt;
+  {‘hbase.hstore.blockingStoreFiles’ =&gt; ’10’}}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Table configuration
+  options can be put at the end.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>describe</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Describe the named
+  table</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; describe
+  ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>disable</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Start disable of
+  named table</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; disable
+  ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>disable_all</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Disable all of tables
+  matching the given regex</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; disable_all
+  ‘t.*’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>is_disabled</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>verifies Is named
+  table disabled</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; is_disabled
+  ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>drop&nbsp;</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Drop the named table.
+  Table must first be disabled</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; drop ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>drop_all</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Drop all of the
+  tables matching the given regex</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; drop_all
+  ‘t.*’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>enable</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Start enable of named
+  table</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; enable ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>enable_all</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Enable all of the
+  tables matching the given regex</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; enable_all
+  ‘t.*’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>is_enabled</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>verifies Is named
+  table enabled</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; is_enabled
+  ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>exists</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Does the named table
+  exist</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; exists ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>list</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>List all tables in
+  hbase. Optional regular expression parameter could be used to filter the output</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; list</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; list
+  ‘abc.*’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>show_filters</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Show all the filters
+  in hbase.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  show_filters</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>alter_status</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Get the status of the
+  alter command. Indicates the number of regions of the table that have
+  received the updated schema Pass table name.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  alter_status ‘t1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>alter_async</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Alter column family
+  schema, does not wait for all regions to receive the schema changes. Pass
+  table name and a dictionary specifying new column family schema. Dictionaries
+  are described on the main help command output. Dictionary must include name
+  of column family to alter.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>To change or add the
+  ‘f1’ column family in table ‘t1’ from defaults to instead keep a maximum of 5
+  cell VERSIONS, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter_async
+  ‘t1’, NAME =&gt; ‘f1’, VERSIONS =&gt; 5</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>To delete the ‘f1’
+  column family in table ‘t1’, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter_async
+  ‘t1’, NAME =&gt; ‘f1’, METHOD =&gt; ‘delete’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>or a shorter version:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter_async
+  ‘t1’, ‘delete’ =&gt; ‘f1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>You can also change
+  table-scope attributes like MAX_FILESIZE MEMSTORE_FLUSHSIZE, READONLY, and
+  DEFERRED_LOG_FLUSH.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For example, to
+  change the max size of a family to 128MB, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  METHOD =&gt; ‘table_att’, MAX_FILESIZE =&gt; ‘134217728’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>There could be more
+  than one alteration in one command:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; alter ‘t1’,
+  {NAME =&gt; ‘f1’}, {NAME =&gt; ‘f2’, METHOD =&gt; ‘delete’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>To check if all the
+  regions have been updated, use alter_status &lt;table_name&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:18.0pt;text-align:left;
+text-indent:-18.0pt'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman",serif'>Data
+Manipulation commands</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=699
+ style='width:524.4pt;background:white;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=132 style='width:99.2pt;border:solid windowtext 1.0pt;border-left:
+  none;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>count</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Count the number of
+  rows in a table. Return value is the number of rows. This operation may take
+  a LONG time (Run ‘$HADOOP_HOME/bin/hadoop jar hbase.jar rowcount’ to run a
+  counting mapreduce job). Current count is shown every 1000 rows by default.
+  Count interval may be optionally specified. Scan caching is enabled on count
+  scans by default. Default cache size is 10 rows. If your rows are small in
+  size, you may want to increase this parameter. Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; count ‘t1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; count ‘t1’,
+  INTERVAL =&gt; 100000</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; count ‘t1’,
+  CACHE =&gt; 1000</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; count ‘t1’,
+  INTERVAL =&gt; 10, CACHE =&gt; 1000</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The same commands
+  also can be run on a table reference. Suppose you had a reference t to table
+  ‘t1’, the corresponding commands would be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.count</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.count
+  INTERVAL =&gt; 100000</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.count
+  CACHE =&gt; 1000</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.count
+  INTERVAL =&gt; 10, CACHE =&gt; 1000</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>delete</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Put a delete cell
+  value at specified table/row/column and optionally timestamp coordinates.
+  Deletes must match the deleted cell’s coordinates exactly. When scanning, a
+  delete cell suppresses older versions. To delete a cell from ‘t1’ at row ‘r1’
+  under column ‘c1’ marked with the time ‘ts1’, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; delete
+  ‘t1’, ‘r1’, ‘c1’, ts1</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The same command can
+  also be run on a table reference. Suppose you had a reference t to table
+  ‘t1’, the corresponding command would be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.delete
+  ‘r1’, ‘c1’, ts1</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>deleteall</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Delete all cells in a
+  given row; pass a table name, row, and optionally a column and timestamp.
+  Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; deleteall
+  ‘t1’, ‘r1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; deleteall
+  ‘t1’, ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; deleteall
+  ‘t1’, ‘r1’, ‘c1’, ts1</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The same commands
+  also can be run on a table reference. Suppose you had a reference t to table
+  ‘t1’, the corresponding command would be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.deleteall
+  ‘r1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.deleteall
+  ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.deleteall
+  ‘r1’, ‘c1’, ts1</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>get</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Get row or cell
+  contents; pass table name, row, and optionally a dictionary of column(s),
+  timestamp, timerange and versions.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {TIMERANGE =&gt; [ts1, ts2]}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {COLUMN =&gt; ‘c1’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {COLUMN =&gt; [‘c1’, ‘c2’, ‘c3’]}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {COLUMN =&gt; ‘c1’, TIMESTAMP =&gt; ts1}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {COLUMN =&gt; ‘c1’, TIMERANGE =&gt; [ts1, ts2], VERSIONS =&gt; 4}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {COLUMN =&gt; ‘c1’, TIMESTAMP =&gt; ts1, VERSIONS =&gt; 4}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, {FILTER =&gt; “ValueFilter(=, ‘binary:abc’)”}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, ‘c1’, ‘c2’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’, [‘c1’, ‘c2’]</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Besides the default
+  ‘toStringBinary’ format, ‘get’ also supports custom formatting by column. A
+  user can define a FORMATTER by adding it to the column name in the get specification.
+  The FORMATTER can be stipulated:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>1. either as a
+  org.apache.hadoop.hbase.util. Bytes method name (e.g, toInt, toString)</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>2. or as a custom
+  class followed by method name: e.g. ‘c(MyFormatterClass).format’.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Example formatting
+  cf:qualifier1 and cf:qualifier2 both as Integers:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get ‘t1’,
+  ‘r1’ {COLUMN =&gt; [‘cf:qualifier1:toInt’, ‘cf:qualifier2:c(org.apache.hadoop.hbase.util.Bytes).toInt’]
+  }</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Note that you can
+  specify a FORMATTER by column only (cf:qualifer). You cannot specify a
+  FORMATTER for all columns of a column family. The same commands also can be
+  run on a reference to a table (obtained via get_table or create_table).
+  Suppose you had a reference t to table ‘t1’, the corresponding commands would
+  be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {TIMERANGE =&gt; [ts1, ts2]}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {COLUMN =&gt; ‘c1’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {COLUMN =&gt; [‘c1’, ‘c2’, ‘c3’]}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {COLUMN =&gt; ‘c1’, TIMESTAMP =&gt; ts1}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {COLUMN =&gt; ‘c1’, TIMERANGE =&gt; [ts1, ts2], VERSIONS =&gt; 4}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {COLUMN =&gt; ‘c1’, TIMESTAMP =&gt; ts1, VERSIONS =&gt; 4}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  {FILTER =&gt; “ValueFilter(=, ‘binary:abc’)”}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  ‘c1’, ‘c2’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.get ‘r1’,
+  [‘c1’, ‘c2’]</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>get_counter</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Return a counter cell
+  value at specified table/row/column coordinates. A cell cell should be
+  managed with atomic increment function oh HBase and the data should be binary
+  encoded. Example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; get_counter
+  ‘t1’, ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The same commands
+  also can be run on a table reference. Suppose you had a reference t to table
+  ‘t1’, the corresponding command would be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  t.get_counter ‘r1’, ‘c1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>incr</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Increments a cell
+  ‘value’ at specified table/row/column coordinates. To increment a cell value
+  in table ‘t1’ at row ‘r1’ under column ‘c1’ by 1 (can be omitted) or 10 do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; incr ‘t1’,
+  ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; incr ‘t1’,
+  ‘r1’, ‘c1’, 1</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; incr ‘t1’,
+  ‘r1’, ‘c1’, 10</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The same commands
+  also can be run on a table reference. Suppose you had a reference t to table
+  ‘t1’, the corresponding command would be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.incr
+  ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.incr
+  ‘r1’, ‘c1’, 1</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.incr
+  ‘r1’, ‘c1’, 10</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>put</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Put a cell ‘value’ at
+  specified table/row/column and optionally timestamp coordinates. To put a
+  cell value into table ‘t1’ at row ‘r1’ under column ‘c1’ marked with the time
+  ‘ts1’, do:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; put ‘t1’,
+  ‘r1’, ‘c1’, ‘value’, ts1</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The same commands
+  also can be run on a table reference. Suppose you had a reference t to table
+  ‘t1’, the corresponding command would be:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t.put ‘r1’,
+  ‘c1’, ‘value’, ts1</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>scan</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Scan a table; pass
+  table name and optionally a dictionary of scanner specifications. Scanner
+  specifications may include one or more of: TIMERANGE, FILTER, LIMIT,
+  STARTROW, STOPROW, TIMESTAMP, MAXLENGTH, or COLUMNS, CACHEIf no columns are
+  specified, all columns will be scanned.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>To scan all members
+  of a column family, leave the qualifier empty as in ‘col_family:’.The filter
+  can be specified in two ways:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>1. Using a
+  filterString – more information on this is available in the Filter Language
+  document attached to the HBASE-4176 JIRA</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>2. Using the entire
+  package name of the filter. Some examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan
+  ‘.META.’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan
+  ‘.META.’, {COLUMNS =&gt; ‘info:regioninfo’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {COLUMNS =&gt; [‘c1’, ‘c2’], LIMIT =&gt; 10, STARTROW =&gt; ‘xyz’}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {COLUMNS =&gt; ‘c1’, TIMERANGE =&gt; [1303668804, 1303668904]}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {FILTER =&gt; “(PrefixFilter (‘row2’) AND (QualifierFilter (&gt;=,
+  ‘binary:xyz’))) AND (TimestampsFilter ( 123, 456))”}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {FILTER =&gt; org.apache.hadoop.hbase.filter.ColumnPaginationFilter.new(1,
+  0)}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For experts, there is
+  an additional option — CACHE_BLOCKS — which switches block caching for the
+  scanner on (true) or off (false). By default it is enabled. </span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {COLUMNS =&gt; [‘c1’, ‘c2’], CACHE_BLOCKS =&gt; false}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Also for experts,
+  there is an advanced option — RAW — which instructs the scanner to return all
+  cells (including delete markers and uncollected deleted cells). This option
+  cannot be combined with requesting specific COLUMNS. Disabled by default.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {RAW =&gt; true, VERSIONS =&gt; 10}</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Besides the default
+  ‘toStringBinary’ format, ‘scan’ supports custom formatting by column. A user
+  can define a FORMATTER by adding it to the column name in the scan
+  specification. The FORMATTER can be stipulated:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>1. either as a
+  org.apache.hadoop.hbase.util.Bytes method name (e.g, toInt, toString)</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>2. or as a custom
+  class followed by method name: e.g. ‘c(MyFormatterClass).format’.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Example formatting
+  cf:qualifier1 and cf:qualifier2 both as Integers:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; scan ‘t1’,
+  {COLUMNS =&gt; [‘cf:qualifier1:toInt’, ‘cf:qualifier2:c(org.apache.hadoop.hbase.util.Bytes).toInt’]
+  }</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Note that you can
+  specify a FORMATTER by column only (cf:qualifer). You cannot specify a
+  FORMATTER for all columns of a column family.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Scan can also be used
+  directly from a table, by first getting a reference to a table, like such:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; t =
+  get_table ‘t’</span></b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'><br>
+  <b>hbase&gt; t.scan</b></span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Note in the above
+  situation, you can still provide all the filtering, columns, options, etc as
+  described above.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>truncate</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Disables, drops and
+  recreates the specified table.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;truncate
+  ‘t1’</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:18.0pt;text-align:left;
+text-indent:-18.0pt'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman",serif'>HBase
+surgery tools</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=699
+ style='width:524.4pt;background:white;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=132 style='width:99.2pt;border:solid windowtext 1.0pt;border-left:
+  none;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>assign</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Assign a region. Use
+  with caution. If region already assigned, this command will do a force
+  reassign. For experts only.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; assign
+  ‘REGION_NAME’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>balancer</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Trigger the cluster balancer.
+  Returns true if balancer ran and was able to tell the region servers to
+  unassign all the regions to balance (the re-assignment itself is async). Otherwise
+  false (Will not run if regions in transition).</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; balancer</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>balance_switch</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Enable/Disable
+  balancer. Returns previous balancer state.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  balance_switch true</span></b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'><br>
+  <b>hbase&gt; balance_switch false</b></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>close_region</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Close a single
+  region. Ask the master to close a region out on the cluster or if
+  ‘SERVER_NAME’ is supplied, ask the designated hosting region server to close
+  the region directly. Closing a region, the master expects ‘REGIONNAME’ to be
+  a fully qualified region name. When asking the hosting region server to directly
+  close a region, you pass the regions’ encoded name only. A region name looks
+  like this:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>TestTable,0094429456,1289497600452.527db22f95c8a9e0116f0cc13c680396.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>The trailing period
+  is part of the region server name. A region’s encoded name is the hash at the
+  end of a region name; e.g. 527db22f95c8a9e0116f0cc13c680396(without the
+  period). A ‘SERVER_NAME’ is its host, port plus start code.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For example: host187.example.com,60020,1289493121758
+  (find server name in master ui or when you do detailed status in shell). </span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>This command will end
+  up running close on the region hosting region server. The close is done
+  without the master’s involvement (It will not know of the close). Once
+  closed, region will stay closed. Use assign to reopen/reassign. Use unassign
+  or move to assign the region elsewhere on cluster. Use with caution. For
+  experts only.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  close_region ‘REGIONNAME’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  close_region ‘REGIONNAME’, ‘SERVER_NAME’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>compact</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact all regions
+  in passed table or pass a region row to compact an individual region. You can
+  also compact a single column family within a region.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact all regions
+  in a table:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; compact
+  ‘t1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact an entire
+  region:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; compact
+  ‘r1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact only a column
+  family within a region:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; compact
+  ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact a column
+  family within a table:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; compact
+  ‘t1’, ‘c1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>flush</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Flush all regions in
+  passed table or pass a region row to flush an individual region.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; flush
+  ‘TABLENAME’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; flush
+  ‘REGIONNAME’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>major_compact</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Run major compaction
+  on passed table or pass a region row to major compact an individual region.
+  To compact a single column family within a region specify the region name followed
+  by the column family name.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact all regions
+  in a table:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  major_compact ‘t1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact an entire region:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  major_compact ‘r1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact a single
+  column family within a region:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  major_compact ‘r1’, ‘c1’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Compact a single
+  column family within a table:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  major_compact ‘t1’, ‘c1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>move</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Move a region.
+  Optionally specify target region server else we choose one at random. NOTE:
+  You pass the encoded region name, not the region name so this command is a
+  little different to the others. The encoded region name is the hash suffix on
+  region names: e.g. if the region name were TestTable,0094429456,1289497600452.527db22f95c8a9e0116f0cc13c680396.
+  then the encoded region name portion is 527db22f95c8a9e0116f0cc13c680396 A
+  server name is its host, port plus start code. For example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>host187.example.com,60020,1289493121758</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; move
+  ‘ENCODED_REGIONNAME’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; move
+  ‘ENCODED_REGIONNAME’, ‘SERVER_NAME’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>split</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Split entire table or
+  pass a region to split individual region. With the second parameter, you can
+  specify an explicit split key for the region. </span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>split ‘tableName’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>split ‘regionName’ #
+  format: ‘tableName,startKey,id’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>split ‘tableName’,
+  ‘splitKey’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>split ‘regionName’,
+  ‘splitKey’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>unassign</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Unassign a region.
+  Unassign will close region in current location and then reopen it again. Pass
+  ‘true’ to force the unassignment (‘force’ will clear all in-memory state in
+  master before the reassign. If results in double assignment use hbck -fix to
+  resolve. To be used by experts). Use with caution. For expert use only.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; unassign
+  ‘REGIONNAME’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; unassign
+  ‘REGIONNAME’, true</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>hlog_roll</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Roll the log writer.
+  That is, start writing log messages to a new file. The name of the region server
+  should be given as the parameter. A ‘server_name’ is the host, port plus
+  start code of a region server. For example: </span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>host187.example.com,60020,1289493121758
+  (find server name in master ui or when you do detailed status in shell)</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;hlog_roll</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif;
+  color:black'>zk_dump</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Dump status of HBase
+  cluster as seen by ZooKeeper.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;zk_dump</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:18.0pt;text-align:left;
+text-indent:-18.0pt'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman",serif'>Cluster
+replication tools</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=699
+ style='width:524.4pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=132 style='width:99.2pt;border:solid windowtext 1.0pt;border-left:
+  none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>add_peer</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Add a peer cluster to replicate
+  to, the id must be a short and the cluster key is composed like this: hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>This gives a full path for HBase
+  to connect to another cluster. </span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; add_peer ‘1’,
+  “server1.cie.com:2181:/hbase”</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; add_peer ‘2’,
+  “zk1,zk2,zk3:2182:/hbase-prod”</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>remove_peer</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Stops the specified replication
+  stream and deletes all the meta information kept about it. Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; remove_peer ‘1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>list_peers</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>List all replication peer
+  clusters.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; list_peers</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>enable_peer</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Restarts the replication to the specified
+  peer cluster, continuing from where it was disabled.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; enable_peer ‘1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>disable_peer</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Stops the replication stream to
+  the specified cluster, but still keeps track of new edits to replicate.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; disable_peer ‘1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>start_replication</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Restarts all the replication
+  features. The state in which each stream starts in is undetermined. WARNING: start/stop
+  replication is only meant to be used in critical load situations.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; start_replication</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Times New Roman",serif'>stop_replication</span></b></p>
+  </td>
+  <td width=567 valign=bottom style='width:425.2pt;border:none;border-bottom:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Stops all the replication
+  features. The state in which each stream stops in is undetermined. WARNING: start/stop
+  replication is only meant to be used in critical load situations.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Examples:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>hbase&gt; stop_replication</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>6) Security tools</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=699
+ style='width:524.4pt;background:white;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=132 style='width:99.2pt;border:solid windowtext 1.0pt;border-left:
+  none;padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>grant</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Grant users specific
+  rights.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Syntax : grant permissions
+  is either zero or more letters from the set “RWXCA”. READ(‘R’), WRITE(‘W’),
+  EXEC(‘X’), CREATE(‘C’), ADMIN(‘A’).</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; grant
+  ‘bobsmith’, ‘RWXCA’</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; grant
+  ‘bobsmith’, ‘RW’, ‘t1’, ‘f1’, ‘col1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>revoke</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Revoke a user’s
+  access rights.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Syntax : revoke</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; revoke
+  ‘bobsmith’, ‘t1’, ‘f1’, ‘col1’</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=132 style='width:99.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>user_permission</span></b></p>
+  </td>
+  <td width=567 style='width:425.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  padding:4.5pt 11.25pt 4.5pt 11.25pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Show all permissions
+  for the particular user.</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>Syntax :
+  user_permission</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>For example:</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt; user_permission</span></b></p>
+  <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+  style='font-family:"Times New Roman",serif;color:black'>hbase&gt;
+  user_permission ‘table1’</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

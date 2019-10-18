@@ -1,8 +1,8 @@
 ---
-title: MarkDown Reference
-description: MarkDown 一些写作参考
+title: MarkDown Cheat Sheet
+description: MarkDown Cheat Sheet
 categories:
- - Reference
+ - Cheat Sheet
 tags:
  - MarkDown
 ---
