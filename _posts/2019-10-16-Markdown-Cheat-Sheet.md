@@ -7,6 +7,97 @@ tags:
  - MarkDown
 ---
 
+## 算法
+
+从[这里](http://tug.ctan.org/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf)可以查看到 package 的详细参考。
+
+```latex{cmd=true}
+\documentclass[12pt]{standalone}
+\usepackage[UTF8]{ctex}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{bm,fancyhdr,graphicx,amsmath,amssymb}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\begin{document}
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetAlgoLined
+\KwResult{Write here the result}
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+
+\Input{Write here the input}
+\Output{Write here the output}
+\BlankLine
+
+\While{While condition}{
+    instructions\;
+    \eIf{condition}{
+        instructions1\;
+        instructions2\;
+    }{
+        instructions3\;
+    }
+}
+
+\caption{While loop with If/Else condition}
+\end{algorithm}
+\end{document}
+```
+
+```latex{cmd=true}
+\documentclass[12pt]{standalone}
+\usepackage[UTF8]{ctex}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{bm,fancyhdr,graphicx,amsmath,amssymb}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\begin{document}
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetAlgoLined
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+
+\Input{Write here the input}
+\Output{Write here the output}
+
+\BlankLine
+
+$x\leftarrow 0$    \;
+$y\leftarrow 0$    \;
+\BlankLine
+\ForEach{ForEach condition}{
+\BlankLine
+
+    \tcc{comments on code}
+    \ForEach{ForEach condition}{
+        \If{If condition}{
+            instruction(s) like below: \\
+            increase $x$ by $1$\;
+            decrease $y$ by $2$\;
+        }
+
+        \BlankLine
+
+        \uIf{If condition}{
+            instruction
+        }
+        \uElseIf{ElseIf condition}{
+            instruction
+        }
+        \uElse{
+            instruction
+        }
+    }
+}
+\caption{Nested ForEach loop with If/ElseIf/Else condition}
+\end{algorithm}
+
+\end{document}
+```
 
 ## 图片
 
